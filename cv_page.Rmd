@@ -61,7 +61,7 @@ detectors through experiment and simulation.
 
 **Teaching Assistant**                             
 ECE 340 - Semiconductor Physics
-University of Illinois at Urbana-Champaign
+University of Illinois at Urbana-Champaign  
 Fall 2014  
 
 **Teaching Assistant**                                
