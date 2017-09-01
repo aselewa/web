@@ -1,0 +1,28 @@
+name: "Alan_Selewa"
+navbar:
+  title: "Alan Selewa"
+  left:
+    - text: "CV"
+      icon: fa-file  fa-2x
+      href: cv_page.html
+    - text: "Research"
+      icon: fa-book fa-2x
+      menu: 
+        - text: "Overview"
+          href: research.html
+        - text: "Protein Clusters"
+          href: protein_clusters.html
+        - text: "Evolutionary Models"
+          href: blosum.html
+    - text: "Gallery"
+      icon: fa-camera fa-2x
+      href: gallery.html
+  right:
+    - icon: fa-github fa-2x
+      href: https://github.com/aselewa
+    - icon: fa-linkedin fa-2x
+      href: https://www.linkedin.com/in/alan-selewa-000889b8/
+output:
+  html_document:
+    theme: flatly
+    highlight: textmate

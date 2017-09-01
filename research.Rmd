@@ -1,0 +1,10 @@
+***
+# Overview
+***
+I am generally interested in applying statistics and probability theory to problems in ecology and evolution. I am particularly interested in microbial ecology and how microbial interactions influence changes at the genetic level. 
+
+I am currently developing empirical amino acid [block substitution matrices](blosum.html) using metagenomic data to understand amino acid substitution models in microbes.
+
+I also working on a workflow for understanding [protein cluster variance](protein_clusters.html)
+
+More to come...

@@ -1,0 +1,17 @@
+---
+title: ""
+output:
+  html_document:
+    includes:
+      in_header: cover.html
+---
+
+<br>
+
+<img id="alan" src="img/alan.png" width="300px" height="auto" align="right">
+
+# Brief Bio
+> I am a graduate student at the University of Chicago pursuing a PhD in<br> Biophysics. I did my undergraduate studies at the University of Illinois<br>
+at Urbana-Champaign where I studied Physics. I am passionate about <br>
+using my quantitative background to solve problems in genomics,<br> 
+ecology, and evolutionary biology. I am also interested in developing<br> workflows for scientific reproducibility.
