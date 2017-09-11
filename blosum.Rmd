@@ -1,4 +1,0 @@
-***
-# Empirical Evolutionary Models
-***
-Empirical amino acid substitution models using metagenomic data

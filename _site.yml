@@ -12,8 +12,6 @@ navbar:
           href: research.html
         - text: "Protein Clusters"
           href: protein_clusters.html
-        - text: "Evolutionary Models"
-          href: blosum.html
     - text: "Gallery"
       icon: fa-camera fa-2x
       href: gallery.html

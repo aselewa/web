@@ -46,7 +46,7 @@ University of Chicago
 PI: Norbert Scherer 
 2015 - 2016  
 
-Algorithms for image analysis of microbes
+Development of multi-focal microscopy. Image analysis and reconstruction using maximum likelihood.
 
 **Undergraduate Research Assistant**                
 Department of Physics  
