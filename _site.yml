@@ -1,4 +1,5 @@
 name: "Alan_Selewa"
+output_dir: "docs"
 navbar:
   title: "Alan Selewa"
   left:
