@@ -11,7 +11,9 @@ navbar:
       menu: 
         - text: "Overview"
           href: research.html
-        - text: "Protein Clusters"
+        - text: "Single Cell Analysis"
+          href: dndq.html
+        - text: "Protein Evolution"
           href: protein_clusters.html
     - text: "Gallery"
       icon: fa-camera fa-2x
