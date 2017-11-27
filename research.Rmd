@@ -2,4 +2,4 @@
 # Overview
 ***
 
-[Breast cancer data & tumor heterogeneity](ExploratoryAnalysis.html)
+[Breast cancer data & tumor heterogeneity](BCAnalysis.html)
