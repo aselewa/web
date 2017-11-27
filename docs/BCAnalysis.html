@@ -332,9 +332,373 @@ div.tocify {
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
 <p>Single-cell RNA-seq across ~21 cells were aligned to <code>hg19</code> using <code>STAR</code> on the RCC and 21 BAMs were produced as a result. Next, I used <code>bam-readcounts</code> (default parameters) to obtain read counts at each mutation positions for each nucleotide. Post processing in R was done on the raw read counts and the result is the following matrix:</p>
-<pre class="r"><code>source(&#39;~/sc_call_variants/readcounts_parser.R&#39;)
-result &lt;- gen.covmat(&#39;mutantpos.txt&#39;,&#39;SRR&#39;)
-covmat &lt;- result[[1]]
+<pre class="r"><code>source(&#39;~/sc_call_variants/readcounts_parser.R&#39;)</code></pre>
+<pre><code>[1] 2
+[1] 0
+[1] 4
+[1] 44
+[1] 72
+[1] 15
+[1] 1
+[1] 8
+[1] 2
+[1] 28
+[1] 0
+[1] 16
+[1] 0
+[1] 0
+[1] 70
+[1] 1
+[1] 2
+[1] 1
+[1] 49
+[1] 2
+[1] 0
+[1] 20
+[1] 93
+[1] 20
+[1] 19
+[1] 46
+[1] 2
+[1] 23
+[1] 9
+[1] 2
+[1] 5
+[1] 44
+[1] 0
+[1] 1
+[1] 68
+[1] 1
+[1] 4
+[1] 12
+[1] 1
+[1] 0
+[1] 22
+[1] 1
+[1] 1
+[1] 4
+[1] 31
+[1] 72
+[1] 43
+[1] 20
+[1] 54
+[1] 11
+[1] 2
+[1] 0
+[1] 0
+[1] 4
+[1] 4
+[1] 2
+[1] 112
+[1] 5
+[1] 14
+[1] 19
+[1] 0
+[1] 8
+[1] 4
+[1] 3
+[1] 7
+[1] 40
+[1] 48
+[1] 1
+[1] 63
+[1] 10
+[1] 0
+[1] 27
+[1] 2
+[1] 69
+[1] 115
+[1] 0
+[1] 123
+[1] 70
+[1] 0
+[1] 4
+[1] 67
+[1] 28
+[1] 3
+[1] 2
+[1] 95
+[1] 0
+[1] 16
+[1] 3
+[1] 46
+[1] 3
+[1] 1
+[1] 77
+[1] 2
+[1] 7
+[1] 79
+[1] 4
+[1] 12
+[1] 1
+[1] 0
+[1] 3
+[1] 1
+[1] 5
+[1] 0
+[1] 2
+[1] 42
+[1] 0
+[1] 0
+[1] 2
+[1] 42
+[1] 8
+[1] 0
+[1] 4
+[1] 72
+[1] 4
+[1] 9
+[1] 0
+[1] 10
+[1] 4
+[1] 5
+[1] 9
+[1] 0
+[1] 4
+[1] 84
+[1] 26
+[1] 16
+[1] 43
+[1] 1
+[1] 44
+[1] 4
+[1] 52
+[1] 44
+[1] 49
+[1] 80
+[1] 3
+[1] 0
+[1] 3
+[1] 2
+[1] 228
+[1] 3
+[1] 7
+[1] 2
+[1] 1
+[1] 2
+[1] 12
+[1] 198
+[1] 1
+[1] 7
+[1] 51
+[1] 4
+[1] 3
+[1] 13
+[1] 15
+[1] 7
+[1] 33
+[1] 28
+[1] 4
+[1] 6
+[1] 5
+[1] 1
+[1] 0
+[1] 6
+[1] 1
+[1] 22
+[1] 7
+[1] 3
+[1] 5
+[1] 3
+[1] 53
+[1] 0
+[1] 32
+[1] 1
+[1] 4
+[1] 19
+[1] 31
+[1] 6
+[1] 0
+[1] 13
+[1] 9
+[1] 3
+[1] 5
+[1] 26
+[1] 69</code></pre>
+<pre class="r"><code>result &lt;- gen.covmat(&#39;mutantpos.txt&#39;,&#39;SRR&#39;)</code></pre>
+<pre><code>[1] 2
+[1] 0
+[1] 4
+[1] 44
+[1] 72
+[1] 15
+[1] 1
+[1] 8
+[1] 2
+[1] 28
+[1] 0
+[1] 16
+[1] 0
+[1] 0
+[1] 70
+[1] 1
+[1] 2
+[1] 1
+[1] 49
+[1] 2
+[1] 0
+[1] 20
+[1] 93
+[1] 20
+[1] 19
+[1] 46
+[1] 2
+[1] 23
+[1] 9
+[1] 2
+[1] 5
+[1] 44
+[1] 0
+[1] 1
+[1] 68
+[1] 1
+[1] 4
+[1] 12
+[1] 1
+[1] 0
+[1] 22
+[1] 1
+[1] 1
+[1] 4
+[1] 31
+[1] 72
+[1] 43
+[1] 20
+[1] 54
+[1] 11
+[1] 2
+[1] 0
+[1] 0
+[1] 4
+[1] 4
+[1] 2
+[1] 112
+[1] 5
+[1] 14
+[1] 19
+[1] 0
+[1] 8
+[1] 4
+[1] 3
+[1] 7
+[1] 40
+[1] 48
+[1] 1
+[1] 63
+[1] 10
+[1] 0
+[1] 27
+[1] 2
+[1] 69
+[1] 115
+[1] 0
+[1] 123
+[1] 70
+[1] 0
+[1] 4
+[1] 67
+[1] 28
+[1] 3
+[1] 2
+[1] 95
+[1] 0
+[1] 16
+[1] 3
+[1] 46
+[1] 3
+[1] 1
+[1] 77
+[1] 2
+[1] 7
+[1] 79
+[1] 4
+[1] 12
+[1] 1
+[1] 0
+[1] 3
+[1] 1
+[1] 5
+[1] 0
+[1] 2
+[1] 42
+[1] 0
+[1] 0
+[1] 2
+[1] 42
+[1] 8
+[1] 0
+[1] 4
+[1] 72
+[1] 4
+[1] 9
+[1] 0
+[1] 10
+[1] 4
+[1] 5
+[1] 9
+[1] 0
+[1] 4
+[1] 84
+[1] 26
+[1] 16
+[1] 43
+[1] 1
+[1] 44
+[1] 4
+[1] 52
+[1] 44
+[1] 49
+[1] 80
+[1] 3
+[1] 0
+[1] 3
+[1] 2
+[1] 228
+[1] 3
+[1] 7
+[1] 2
+[1] 1
+[1] 2
+[1] 12
+[1] 198
+[1] 1
+[1] 7
+[1] 51
+[1] 4
+[1] 3
+[1] 13
+[1] 15
+[1] 7
+[1] 33
+[1] 28
+[1] 4
+[1] 6
+[1] 5
+[1] 1
+[1] 0
+[1] 6
+[1] 1
+[1] 22
+[1] 7
+[1] 3
+[1] 5
+[1] 3
+[1] 53
+[1] 0
+[1] 32
+[1] 1
+[1] 4
+[1] 19
+[1] 31
+[1] 6
+[1] 0
+[1] 13
+[1] 9
+[1] 3
+[1] 5
+[1] 26
+[1] 69</code></pre>
+<pre class="r"><code>covmat &lt;- result[[1]]
 covmat_coding &lt;- rbind(subset(covmat, covmat$Type == &quot;Missense_Mutation&quot;),subset(covmat, covmat$Type == &quot;Silent&quot;),subset(covmat, covmat$Type == &quot;Splice_Site&quot;))
 knitr::kable(covmat_coding,&quot;html&quot;) %&gt;% kable_styling() %&gt;% scroll_box(width=&quot;805px&quot;,height=&#39;400px&#39;)</code></pre>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:400px; overflow-x: scroll; width:805px; ">
@@ -7143,29 +7507,23 @@ Splice_Site
 </table>
 </div>
 <pre class="r"><code>hist(result[[2]],xlab=&#39;Reads&#39;,ylab=&#39;Frequency&#39;,main = &#39;Distribution of Reads&#39;,col=&#39;blue&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-3-1.png" width="768" /></p>
+<p><img src="Figs/unnamed-chunk-20-1.png" width="768" /></p>
 </div>
 <div id="characterizing-mutations-in-scs" class="section level2">
 <h2>Characterizing Mutations in SCs</h2>
-<p>For each cell, the average reference allele frequencies and average alternative frequencies were computed. This was done by summing the number of reference/alternative reads across all positions and dividing this sum by the total number of reads. We effectively break down the total reads for each cell into reference-specific and alternative-specific reads.</p>
+<p>The plot below represents the mean reference and alternative frequency in every cell.</p>
 <pre class="r"><code>freqs &lt;- cbind(avgRef = result[[3]],avgAlt = result[[4]])
 barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;),
-        col = c(&quot;red&quot;,&quot;blue&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Frequency&#39;,main=&#39;Distribution of Reads&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-4-1.png" width="768" /></p>
-<p>Some cells have ~0 reads that mapped to the alternative alleles. This tells us something about the false negative rate because we know that these mutations do indeed exist. Assuming these mutations have a 100% frequency, the false negative rate is roughy ~4/21 = 0.19. In reality, this number is smaller as these mutations are not 100% frequency.</p>
+        col = c(&quot;red&quot;,&quot;blue&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Mean Frequency&#39;,main=&#39;Mean Ref and Alt Frequencies&#39;)</code></pre>
+<p><img src="Figs/unnamed-chunk-21-1.png" width="768" /></p>
+<p>Some cells have ~0 reads that mapped to the alternative alleles. This tells us something about the false negative rate because we know that these mutations do indeed exist. Assuming these mutations have a 100% frequency, the false negative rate is roughy ~2/21 = 0.09. In reality, this number is smaller as these mutations are not 100% frequency.</p>
 <p><strong>How representative is the plot above for a single position across all cells?</strong></p>
 <p>To answer this question, we look at a single missense mutation that has a relatively high number of reads mapped to it.</p>
 <pre class="r"><code>freqs &lt;- cbind(avgRef = result[[5]],avgAlt = result[[6]])
 barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;),
         col = c(&quot;red&quot;,&quot;blue&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Frequency&#39;,main=&#39;chr2:178098042&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-5-1.png" width="768" /></p>
-<p>The trend generally holds for both plots. To see it more clearly,</p>
-<pre class="r"><code>par(mfrow=c(1,2))
-plot(result[[3]],result[[5]],pch=16,col=&#39;red&#39;,xlim=c(0.6,1),
-     xlab=&#39;Aggregate Freqs&#39;,ylab=&#39;Single Pos&#39;,main=&#39;Ref&#39;)
-plot(result[[4]],result[[6]],pch=16,col=&#39;blue&#39;,
-     xlab=&#39;Aggregate Freqs&#39;,ylab=&#39;Single Pos&#39;,main=&#39;Alt&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-6-1.png" width="768" /></p>
+<p><img src="Figs/unnamed-chunk-22-1.png" width="768" /></p>
+<p>By comparing the two figures, the trend generally holds between them as expected.</p>
 <p>Which of these cells can we trust? In other words, which of these cells are true positives and not false positives? That depends on the error rate which we quantify in the next section.</p>
 </div>
 <div id="error-rate" class="section level2">

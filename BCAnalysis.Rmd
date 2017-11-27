@@ -32,16 +32,16 @@ hist(result[[2]],xlab='Reads',ylab='Frequency',main = 'Distribution of Reads',co
 
 ## Characterizing Mutations in SCs
 
-For each cell, the average reference allele frequencies and average alternative frequencies were computed. This was done by summing the number of reference/alternative reads across all positions and dividing this sum by the total number of reads. We effectively break down the total reads for each cell into reference-specific and alternative-specific reads. 
+The plot below represents the mean reference and alternative frequency in every cell.
 
 ```{r}
 freqs <- cbind(avgRef = result[[3]],avgAlt = result[[4]])
 barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
-        col = c("red","blue"),xlab='Cell',ylab='Frequency',main='Distribution of Reads')
+        col = c("red","blue"),xlab='Cell',ylab='Mean Frequency',main='Mean Ref and Alt Frequencies')
 ```
 
 
-Some cells have ~0 reads that mapped to the alternative alleles. This tells us something about the false negative rate because we know that these mutations do indeed exist. Assuming these mutations have a 100% frequency, the false negative rate is roughy ~4/21 = 0.19. In reality, this number is smaller as these mutations are not 100% frequency.
+Some cells have ~0 reads that mapped to the alternative alleles. This tells us something about the false negative rate because we know that these mutations do indeed exist. Assuming these mutations have a 100% frequency, the false negative rate is roughy ~2/21 = 0.09. In reality, this number is smaller as these mutations are not 100% frequency.
 
 **How representative is the plot above for a single position across all cells?**
 
@@ -53,15 +53,7 @@ barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
         col = c("red","blue"),xlab='Cell',ylab='Frequency',main='chr2:178098042')
 ```
 
-The trend generally holds for both plots. To see it more clearly,
-
-```{r}
-par(mfrow=c(1,2))
-plot(result[[3]],result[[5]],pch=16,col='red',xlim=c(0.6,1),
-     xlab='Aggregate Freqs',ylab='Single Pos',main='Ref')
-plot(result[[4]],result[[6]],pch=16,col='blue',
-     xlab='Aggregate Freqs',ylab='Single Pos',main='Alt')
-```
+By comparing the two figures, the trend generally holds between them as expected.
 
 Which of these cells can we trust? In other words, which of these cells are true positives and not false positives? That 
 depends on the error rate which we quantify in the next section.
