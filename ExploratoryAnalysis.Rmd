@@ -1,0 +1,78 @@
+---
+title: "Exploratory Analysis of Breast Cancer Data"
+author: "Alan Selewa"
+date: 2017-11-17
+output: html_document
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=8, fig.height=4, fig.path='Figs/',
+                      echo=TRUE, warning=FALSE, message=FALSE, comment = NA)
+```
+
+```{r include=FALSE}
+library(kableExtra)
+```
+
+## Load data
+
+Single-cell RNA-seq across ~21 cells were aligned to ``hg19`` using ``STAR`` on the RCC and 21 BAMs were produced as a result. Next, I used ``bam-readcounts`` (default parameters) to obtain read counts at each mutation positions for each nucleotide. Post processing in R was done on the raw read counts and the result is the following matrix:
+
+```{r}
+source('~/sc_call_variants/readcounts_parser.R')
+result <- gen.covmat('mutantpos.txt','SRR')
+covmat <- result[[1]]
+covmat_coding <- rbind(subset(covmat, covmat$Type == "Missense_Mutation"),subset(covmat, covmat$Type == "Silent"),subset(covmat, covmat$Type == "Splice_Site"))
+knitr::kable(covmat_coding,"html") %>% kable_styling() %>% scroll_box(width="805px",height='400px')
+```
+
+```{r}
+hist(result[[2]],xlab='Reads',ylab='Frequency',main = 'Distribution of Reads',col='blue')
+```
+
+## Characterizing Mutations in SCs
+
+For each cell, the average reference allele frequencies and average alternative frequencies were computed. This was done by summing the number of reference/alternative reads across all positions and dividing this sum by the total number of reads. We effectively break down the total reads for each cell into reference-specific and alternative-specific reads. 
+
+```{r}
+freqs <- cbind(avgRef = result[[3]],avgAlt = result[[4]])
+barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
+        col = c("red","blue"),xlab='Cell',ylab='Frequency',main='Distribution of Reads')
+```
+
+
+Some cells have ~0 reads that mapped to the alternative alleles. This tells us something about the false negative rate because we know that these mutations do indeed exist. Assuming these mutations have a 100% frequency, the false negative rate is roughy ~4/21 = 0.19. In reality, this number is smaller as these mutations are not 100% frequency.
+
+**How representative is the plot above for a single position across all cells?**
+
+To answer this question, we look at a single missense mutation that has a relatively high number of reads mapped to it.
+
+```{r}
+freqs <- cbind(avgRef = result[[5]],avgAlt = result[[6]])
+barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
+        col = c("red","blue"),xlab='Cell',ylab='Frequency',main='chr2:178098042')
+```
+
+The trend generally holds for both plots. To see it more clearly,
+
+```{r}
+par(mfrow=c(1,2))
+plot(result[[3]],result[[5]],pch=16,col='red',xlim=c(0.6,1),
+     xlab='Aggregate Freqs',ylab='Single Pos',main='Ref')
+plot(result[[4]],result[[6]],pch=16,col='blue',
+     xlab='Aggregate Freqs',ylab='Single Pos',main='Alt')
+```
+
+Which of these cells can we trust? In other words, which of these cells are true positives and not false positives? That 
+depends on the error rate which we quantify in the next section.
+
+## Error Rate
+
+We generate a list of random positions across the human genome. In particular, $10^6$ uniformly chosen nucleotide positions across each chromosome are selected and the number of reads mapped to these positions are counted. Then, we compute the number of reference and other alleles at a given position. Then the error is computed as:
+
+$$ Err = \frac{\sum_i^{N} A_i}{\sum_i^{N} (R_i+A_i)} $$
+
+where $R_i$ is the reference allele count at position $i$ and $A_i$ is the alternative allele count (total count of the 3 other nucleotides) at position $i$. 
+
+
+

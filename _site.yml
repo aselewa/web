@@ -1,29 +1,26 @@
-name: "Alan_Selewa"
-output_dir: "docs"
+name: Alan_Selewa
+output_dir: docs
 navbar:
-  title: "Alan Selewa"
+  title: Alan Selewa
   left:
-    - text: "CV"
-      icon: fa-file  fa-2x
-      href: cv_page.html
-    - text: "Research"
-      icon: fa-book fa-2x
-      menu: 
-        - text: "Overview"
-          href: research.html
-        - text: "Single Cell Analysis"
-          href: dndq.html
-        - text: "Protein Evolution"
-          href: protein_clusters.html
-    - text: "Gallery"
-      icon: fa-camera fa-2x
-      href: gallery.html
+  - text: CV
+    icon: fa-file  fa-2x
+    href: cv_page.html
+  - text: Research
+    icon: fa-book fa-2x
+    href: research.html
+  - text: Gallery
+    icon: fa-camera fa-2x
+    href: gallery.html
   right:
-    - icon: fa-github fa-2x
-      href: https://github.com/aselewa
-    - icon: fa-linkedin fa-2x
-      href: https://www.linkedin.com/in/alan-selewa-000889b8/
+  - icon: fa-github fa-2x
+    href: https://github.com/aselewa
+  - icon: fa-linkedin fa-2x
+    href: https://www.linkedin.com/in/alan-selewa-000889b8/
 output:
   html_document:
+    toc: true
+    toc_float: true
     theme: flatly
     highlight: textmate
+

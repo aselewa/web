@@ -1,8 +1,5 @@
 ***
 # Overview
 ***
-I am generally interested in applying probability theory and statistics to problems in genomics and evolutionary biology. 
 
-As an example of a recent work, I worked on evaluating non-synonymous substituions in a blocks of highly conserved proteins. See [protein cluster variance](protein_clusters.html) to learn more.
-
-More to come.
+[Breast cancer data & tumor heterogeneity](ExploratoryAnalysis.html)
