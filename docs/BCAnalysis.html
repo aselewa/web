@@ -7152,7 +7152,6 @@ Splice_Site
 barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;),
         col = c(&quot;red&quot;,&quot;blue&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Mean Frequency&#39;,main=&#39;Mean Ref and Alt Frequencies&#39;)</code></pre>
 <p><img src="Figs/unnamed-chunk-4-1.png" width="768" /></p>
-<p>Some cells have ~0 reads that mapped to the alternative alleles. This tells us something about the false negative rate because we know that these mutations do indeed exist. Assuming these mutations have a 100% frequency, the false negative rate is roughy ~2/21 = 0.09. In reality, this number is smaller as these mutations are not 100% frequency.</p>
 <p><strong>How representative is the plot above for a single position across all cells?</strong></p>
 <p>To answer this question, we look at a single missense mutation that has a relatively high number of reads mapped to it.</p>
 <pre class="r"><code>freqs &lt;- cbind(avgRef = result[[5]],avgAlt = result[[6]])
@@ -7160,13 +7159,32 @@ barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;),
         col = c(&quot;red&quot;,&quot;blue&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Frequency&#39;,main=&#39;chr2:178098042&#39;)</code></pre>
 <p><img src="Figs/unnamed-chunk-5-1.png" width="768" /></p>
 <p>By comparing the two figures, the trend generally holds between them as expected.</p>
+</div>
+<div id="allele-frequency" class="section level2">
+<h2>Allele Frequency</h2>
+<p>Using <code>covmat</code>, we can estimate the alternative allele frequency. Most mutations are low frequency (0-20)%</p>
+<pre class="r"><code>af &lt;- gen.AF(result[[1]])
+hist(af,xlab=&#39;Alternative Allele Frequency&#39;,main=&#39;Alternative Allele Freq Distribution&#39;)</code></pre>
+<p><img src="Figs/unnamed-chunk-6-1.png" width="768" /></p>
+<p>Mean mutation frequency</p>
+<pre class="r"><code>mean(af)</code></pre>
+<pre><code>[1] 0.2799433</code></pre>
 <p>Which of these cells can we trust? In other words, which of these cells are true positives and not false positives? That depends on the error rate which we quantify in the next section.</p>
 </div>
-<div id="error-rate" class="section level2">
-<h2>Error Rate</h2>
+<div id="error-rate-fp-rate" class="section level2">
+<h2>Error Rate (FP Rate)</h2>
 <p>We generate a list of random positions across the human genome. In particular, <span class="math inline">\(10^6\)</span> uniformly chosen nucleotide positions across each chromosome are selected and the number of reads mapped to these positions are counted. Then, we compute the number of reference and other alleles at a given position. Then the error is computed as:</p>
 <p><span class="math display">\[ Err = \frac{\sum_i^{N} A_i}{\sum_i^{N} (R_i+A_i)} \]</span></p>
 <p>where <span class="math inline">\(R_i\)</span> is the reference allele count at position <span class="math inline">\(i\)</span> and <span class="math inline">\(A_i\)</span> is the alternative allele count (total count of the 3 other nucleotides) at position <span class="math inline">\(i\)</span>.</p>
+<p>We sample N = 5000 random positions across the genome for a total of 21 times and obtain error rates. The histogram of error rates is given by:</p>
+<pre class="r"><code>source(&#39;~/sc_call_variants/readcounts_parser.R&#39;)
+errors &lt;- gen.MultiErrorRate()</code></pre>
+<pre class="r"><code>hist(errors,breaks=4,col=&#39;blue&#39;,xlab=&#39;Error rate&#39;,main=&#39;Error Rate Distribution (N=21)&#39;)</code></pre>
+<p><img src="Figs/unnamed-chunk-9-1.png" width="768" /></p>
+<p>The mean error rate is</p>
+<pre class="r"><code>mean(errors)</code></pre>
+<pre><code>[1] 0.003676938</code></pre>
+<p>Thus for every 1000 reads, we can expect ~4 mutations by chance. This is a reasonable error rate as it is a little higher than WES error rates which is expected since scRNA-seq data has a more error-probe protocol.</p>
 </div>
 
 

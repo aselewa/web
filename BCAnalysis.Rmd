@@ -40,9 +40,6 @@ barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
         col = c("red","blue"),xlab='Cell',ylab='Mean Frequency',main='Mean Ref and Alt Frequencies')
 ```
 
-
-Some cells have ~0 reads that mapped to the alternative alleles. This tells us something about the false negative rate because we know that these mutations do indeed exist. Assuming these mutations have a 100% frequency, the false negative rate is roughy ~2/21 = 0.09. In reality, this number is smaller as these mutations are not 100% frequency.
-
 **How representative is the plot above for a single position across all cells?**
 
 To answer this question, we look at a single missense mutation that has a relatively high number of reads mapped to it.
@@ -55,16 +52,49 @@ barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
 
 By comparing the two figures, the trend generally holds between them as expected.
 
+
+## Allele Frequency
+
+Using ``covmat``, we can estimate the alternative allele frequency. Most mutations are low frequency (0-20)%
+
+```{r}
+af <- gen.AF(result[[1]])
+hist(af,xlab='Alternative Allele Frequency',main='Alternative Allele Freq Distribution')
+```
+
+Mean mutation frequency
+
+```{r}
+mean(af)
+```
+
 Which of these cells can we trust? In other words, which of these cells are true positives and not false positives? That 
 depends on the error rate which we quantify in the next section.
 
-## Error Rate
+## Error Rate (FP Rate)
 
 We generate a list of random positions across the human genome. In particular, $10^6$ uniformly chosen nucleotide positions across each chromosome are selected and the number of reads mapped to these positions are counted. Then, we compute the number of reference and other alleles at a given position. Then the error is computed as:
 
 $$ Err = \frac{\sum_i^{N} A_i}{\sum_i^{N} (R_i+A_i)} $$
 
 where $R_i$ is the reference allele count at position $i$ and $A_i$ is the alternative allele count (total count of the 3 other nucleotides) at position $i$. 
+
+We sample N = 5000 random positions across the genome for a total of 21 times and obtain error rates. The histogram of error rates is given by:
+```{r}
+source('~/sc_call_variants/readcounts_parser.R')
+errors <- gen.MultiErrorRate()
+```
+
+```{r}
+hist(errors,breaks=4,col='blue',xlab='Error rate',main='Error Rate Distribution (N=21)')
+```
+
+The mean error rate is
+```{r}
+mean(errors)
+```
+
+Thus for every 1000 reads, we can expect ~4 mutations by chance. This is a reasonable error rate as it is a little higher than WES error rates which is expected since scRNA-seq data has a more error-probe protocol.
 
 
 
