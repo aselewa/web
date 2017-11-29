@@ -27,8 +27,12 @@ knitr::kable(covmat_coding,"html") %>% kable_styling() %>% scroll_box(width="805
 ```
 
 ```{r}
-hist(result[[2]],xlab='Reads',ylab='Frequency',main = 'Distribution of Reads',col='blue')
+hist(result[[2]],xlab='Reads',ylab='Frequency',main = 'Distribution of Reads')
 ```
+
+
+In addition, **7.7%** of positions are covered at atleast **10X**, and **9.1%** of positions are covered at atleast **5X**, per cell.
+
 
 ## Characterizing Mutations in SCs
 
