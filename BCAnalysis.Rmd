@@ -20,7 +20,7 @@ Single-cell RNA-seq across ~21 cells were aligned to ``hg19`` using ``STAR`` on 
 
 ```{r}
 source('~/sc_call_variants/readcounts_parser.R')
-result <- gen.covmat('mutantpos.txt','SRR')
+result <- gen.covmat('BC01/','mutantpos.txt','SRR')
 covmat <- result[[1]]
 covmat_coding <- rbind(subset(covmat, covmat$Type == "Missense_Mutation"),subset(covmat, covmat$Type == "Silent"),subset(covmat, covmat$Type == "Splice_Site"))
 knitr::kable(covmat_coding,"html") %>% kable_styling() %>% scroll_box(width="805px",height='400px')
@@ -99,6 +99,8 @@ mean(errors)
 ```
 
 Thus for every 1000 reads, we can expect ~4 mutations by chance. This is a reasonable error rate as it is a little higher than WES error rates which is expected since scRNA-seq data has a more error-probe protocol.
+
+
 
 
 
