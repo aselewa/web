@@ -46,9 +46,10 @@ We can visualize the reference and alternative counts for each of these genes ac
 ```{r}
 pos <- seq(8,length(covmat),by=4)
 freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene=='EIF5',pos])), 
-               avgAlt = unname(unlist(covmat[covmat$Gene=='EIF5',pos+1])))
-barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
-        col = c("red","blue"),xlab='Cell',ylab='Counts',main='EIF5')
+               avgAlt = unname(unlist(covmat[covmat$Gene=='EIF5',pos+1])),
+               TPM = 0.1*(unname(unlist(covmat[covmat$Gene=='EIF5',pos-2]))))
+barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt","TPTM"),
+        col = c("red","blue","black"),xlab='Cell',ylab='Counts',main='EIF5')
 ```
 
 ```{r}
