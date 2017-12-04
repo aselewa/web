@@ -54,22 +54,24 @@ barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt","TPTM"),
 
 ```{r}
 freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene=='APLP2',pos])), 
-               avgAlt = unname(unlist(covmat[covmat$Gene=='APLP2',pos+1])))
-barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
-        col = c("red","blue"),xlab='Cell',ylab='Counts',main='APLP2')
+               avgAlt = unname(unlist(covmat[covmat$Gene=='APLP2',pos+1])),
+               TPM = 0.1*(unname(unlist(covmat[covmat$Gene=='APLP2',pos-2]))))
+barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt","TPTM"),
+        col = c("red","blue","black"),xlab='Cell',ylab='Counts',main='APLP2')
 ```
 
 
 ```{r}
 freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene=='ILK',pos])), 
-               avgAlt = unname(unlist(covmat[covmat$Gene=='ILK',pos+1])))
-barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt"),
-        col = c("red","blue"),xlab='Cell',ylab='Counts',main='HSPA4')
+               avgAlt = unname(unlist(covmat[covmat$Gene=='ILK',pos+1])),
+               TPM = 0.1*(unname(unlist(covmat[covmat$Gene=='HSPA4',pos-2]))))
+barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt","TPTM"),
+        col = c("red","blue","black"),xlab='Cell',ylab='Counts',main='HSPA4')
 ```
 
 Even for the most expressed genes, the counts at the mutated positions are not consistent across cells. 
 
-## Error Rates
+## Error Rate
 
 $$ Err = \frac{\sum_i^{N} A_i}{\sum_i^{N} (R_i+A_i)} $$
 
