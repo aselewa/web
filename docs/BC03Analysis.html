@@ -179666,25 +179666,27 @@ freqs &lt;- cbind(avgRef = unname(unlist(covmat[covmat$Gene==&#39;EIF5&#39;,pos]
                TPM = 0.1*(unname(unlist(covmat[covmat$Gene==&#39;EIF5&#39;,pos-2]))))
 barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;,&quot;TPTM&quot;),
         col = c(&quot;red&quot;,&quot;blue&quot;,&quot;black&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Counts&#39;,main=&#39;EIF5&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-14-1.png" width="960" /></p>
+<p><img src="Figs/unnamed-chunk-12-1.png" width="960" /></p>
 <pre class="r"><code>freqs &lt;- cbind(avgRef = unname(unlist(covmat[covmat$Gene==&#39;APLP2&#39;,pos])), 
-               avgAlt = unname(unlist(covmat[covmat$Gene==&#39;APLP2&#39;,pos+1])))
-barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;),
-        col = c(&quot;red&quot;,&quot;blue&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Counts&#39;,main=&#39;APLP2&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-15-1.png" width="960" /></p>
+               avgAlt = unname(unlist(covmat[covmat$Gene==&#39;APLP2&#39;,pos+1])),
+               TPM = 0.1*(unname(unlist(covmat[covmat$Gene==&#39;APLP2&#39;,pos-2]))))
+barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;,&quot;TPTM&quot;),
+        col = c(&quot;red&quot;,&quot;blue&quot;,&quot;black&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Counts&#39;,main=&#39;APLP2&#39;)</code></pre>
+<p><img src="Figs/unnamed-chunk-13-1.png" width="960" /></p>
 <pre class="r"><code>freqs &lt;- cbind(avgRef = unname(unlist(covmat[covmat$Gene==&#39;ILK&#39;,pos])), 
-               avgAlt = unname(unlist(covmat[covmat$Gene==&#39;ILK&#39;,pos+1])))
-barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;),
-        col = c(&quot;red&quot;,&quot;blue&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Counts&#39;,main=&#39;HSPA4&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-16-1.png" width="960" /></p>
+               avgAlt = unname(unlist(covmat[covmat$Gene==&#39;ILK&#39;,pos+1])),
+               TPM = 0.1*(unname(unlist(covmat[covmat$Gene==&#39;HSPA4&#39;,pos-2]))))
+barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;,&quot;TPTM&quot;),
+        col = c(&quot;red&quot;,&quot;blue&quot;,&quot;black&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Counts&#39;,main=&#39;HSPA4&#39;)</code></pre>
+<p><img src="Figs/unnamed-chunk-14-1.png" width="960" /></p>
 <p>Even for the most expressed genes, the counts at the mutated positions are not consistent across cells.</p>
 </div>
-<div id="error-rates" class="section level2">
-<h2>Error Rates</h2>
+<div id="error-rate" class="section level2">
+<h2>Error Rate</h2>
 <p><span class="math display">\[ Err = \frac{\sum_i^{N} A_i}{\sum_i^{N} (R_i+A_i)} \]</span></p>
 <pre class="r"><code>errors &lt;- gen.MultiErrorRate()
 hist(errors,main=&#39;Distribution of errors (N=21)&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-17-1.png" width="960" /></p>
+<p><img src="Figs/unnamed-chunk-15-1.png" width="960" /></p>
 <p>The mean error rate is</p>
 <pre class="r"><code>mean(errors)</code></pre>
 <pre><code>[1] 0.00421445</code></pre>
