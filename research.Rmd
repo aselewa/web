@@ -8,6 +8,4 @@ output:
 ***
 ### Tumor heterogeneity
 
-[Breast cancer: Exploratory Analysis, patient BC01](BCAnalysis.html)
-
 [Breast cancer: Exploratory Analysis, patient BC03](BC03Analysis.html)
