@@ -41,33 +41,22 @@ geneCounts <- rowSums(tpms[covmat[,"Gene"],])
 geneCounts[order(geneCounts,decreasing=TRUE)][1:20]
 ```
 
-We can visualize the reference and alternative counts for each of these genes across all cells. We show only the genes with exon mutations.
+We can visualize the reference and alternative counts for each of these genes across all cells. We show only the genes with sense mutations. We also show the TPM/10 = TPTM below.
 
 ```{r}
 pos <- seq(8,length(covmat),by=4)
-freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene=='EIF5',pos])), 
-               avgAlt = unname(unlist(covmat[covmat$Gene=='EIF5',pos+1])),
-               TPM = 0.1*(unname(unlist(covmat[covmat$Gene=='EIF5',pos-2]))))
-barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt","TPTM"),
-        col = c("red","blue","black"),xlab='Cell',ylab='Counts',main='EIF5')
+miss_muts <- covmat[covmat$Type == 'Missense_Mutation' | covmat$Type == 'Nonsense_Mutation',"Gene"]
+miss_muts <- miss_muts[rowSums(tpms[miss_muts,]) > 400]
+miss_muts <- miss_muts[order(rowSums(tpms[miss_muts,]),decreasing=TRUE)]
+for(mut in miss_muts) {
+  freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene==mut,pos])), 
+                avgAlt = unname(unlist(covmat[covmat$Gene==mut,pos+1])),
+                TPM = 0.1*(unname(unlist(covmat[covmat$Gene==mut,pos-2]))))
+  barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt","TPTM"),
+          col = c("red","blue","black"),xlab='Cell',ylab='Counts',main=mut)
+}
 ```
 
-```{r}
-freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene=='APLP2',pos])), 
-               avgAlt = unname(unlist(covmat[covmat$Gene=='APLP2',pos+1])),
-               TPM = 0.1*(unname(unlist(covmat[covmat$Gene=='APLP2',pos-2]))))
-barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt","TPTM"),
-        col = c("red","blue","black"),xlab='Cell',ylab='Counts',main='APLP2')
-```
-
-
-```{r}
-freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene=='ILK',pos])), 
-               avgAlt = unname(unlist(covmat[covmat$Gene=='ILK',pos+1])),
-               TPM = 0.1*(unname(unlist(covmat[covmat$Gene=='HSPA4',pos-2]))))
-barplot(t(freqs),beside=TRUE,legend.text = c("Ref","Alt","TPTM"),
-        col = c("red","blue","black"),xlab='Cell',ylab='Counts',main='HSPA4')
-```
 
 Even for the most expressed genes, the counts at the mutated positions are not consistent across cells. 
 
