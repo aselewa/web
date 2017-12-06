@@ -19,8 +19,10 @@ navbar:
     href: https://www.linkedin.com/in/alan-selewa-000889b8/
 output:
   html_document:
-    toc: true
-    toc_float: true
+    toc: yes
+    toc_float: yes
     theme: flatly
     highlight: textmate
+    lib_dir: site_libs
+    self_contained: no
 
