@@ -16,7 +16,7 @@ library(kableExtra)
 
 ## Load data
 
-Single-cell RNA-seq across 33 cells were aligned to ``hg19`` using ``STAR`` on the RCC and 33 BAM files were produced as a result. Each cell has about $10^5$ unique reads. The average coverage is **16.69**, with **9.7%** of transcriptome covered at atleast **10X**. Next, I used ``bam-readcounts`` (default parameters) to obtain read counts at each mutation positions for each nucleotide. The following data structure was used to summarise single cell mutation profiles:
+Single-cell RNA-seq across 33 cells were aligned to ``hg19`` using ``STAR`` on the RCC and 33 BAM files were produced as a result. Each cell has about $10^6$ unique reads. The average coverage is **16.69**, with **9.7%** of transcriptome covered at atleast **10X**. Next, I used ``bam-readcounts`` (default parameters) to obtain read counts at each mutation positions for each nucleotide. The following data structure was used to summarise single cell mutation profiles:
 
 ```{r}
 source('/Users/aselewa/sc_call_variants/readcounts_parser.R')
@@ -44,7 +44,7 @@ From the list above, 'APC' and 'HUWE' are known to be associated with cancer. 'A
 
 ```{r}
 pos <- seq(8,length(covmat),by=4)
-miss_muts <- covmat[covmat$Type == 'Missense_Mutation' | covmat$Type == 'Nonsense_Mutation',"Gene"]
+miss_muts <- covmat[covmat$Type == 'Missense_Mutation' | covmat$Type == 'Nonsense_Mutation' | covmat$Type == 'Silent',"Gene"]
 miss_muts <- miss_muts[rowSums(tpms[miss_muts,]) > 500]
 miss_muts <- miss_muts[order(rowSums(tpms[miss_muts,]),decreasing=TRUE)]
 for(mut in miss_muts) {

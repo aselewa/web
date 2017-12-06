@@ -331,7 +331,7 @@ div.tocify {
 
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
-<p>Single-cell RNA-seq across 33 cells were aligned to <code>hg19</code> using <code>STAR</code> on the RCC and 33 BAM files were produced as a result. Each cell has about <span class="math inline">\(10^5\)</span> unique reads. The average coverage is <strong>16.69</strong>, with <strong>9.7%</strong> of transcriptome covered at atleast <strong>10X</strong>. Next, I used <code>bam-readcounts</code> (default parameters) to obtain read counts at each mutation positions for each nucleotide. The following data structure was used to summarise single cell mutation profiles:</p>
+<p>Single-cell RNA-seq across 33 cells were aligned to <code>hg19</code> using <code>STAR</code> on the RCC and 33 BAM files were produced as a result. Each cell has about <span class="math inline">\(10^6\)</span> unique reads. The average coverage is <strong>16.69</strong>, with <strong>9.7%</strong> of transcriptome covered at atleast <strong>10X</strong>. Next, I used <code>bam-readcounts</code> (default parameters) to obtain read counts at each mutation positions for each nucleotide. The following data structure was used to summarise single cell mutation profiles:</p>
 <pre class="r"><code>source(&#39;/Users/aselewa/sc_call_variants/readcounts_parser.R&#39;)
 knitr::kable(covmat,&quot;html&quot;) %&gt;% kable_styling() %&gt;% scroll_box(width=&quot;805px&quot;,height=&#39;400px&#39;)</code></pre>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:400px; overflow-x: scroll; width:805px; ">
@@ -828,10 +828,10 @@ NA
 55
 </td>
 <td style="text-align:right;">
-2
+53
 </td>
 <td style="text-align:right;">
-53
+2
 </td>
 <td style="text-align:right;">
 NA
@@ -1244,10 +1244,10 @@ NA
 66
 </td>
 <td style="text-align:right;">
-15
+49
 </td>
 <td style="text-align:right;">
-49
+15
 </td>
 <td style="text-align:right;">
 NA
@@ -3076,10 +3076,10 @@ NA
 25
 </td>
 <td style="text-align:right;">
-0
+25
 </td>
 <td style="text-align:right;">
-25
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -3300,10 +3300,10 @@ NA
 86
 </td>
 <td style="text-align:right;">
-1
+85
 </td>
 <td style="text-align:right;">
-85
+1
 </td>
 <td style="text-align:right;">
 59.18
@@ -3312,10 +3312,10 @@ NA
 44
 </td>
 <td style="text-align:right;">
-0
+44
 </td>
 <td style="text-align:right;">
-44
+0
 </td>
 <td style="text-align:right;">
 20.34
@@ -3324,10 +3324,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -3348,10 +3348,10 @@ NA
 13
 </td>
 <td style="text-align:right;">
-0
+13
 </td>
 <td style="text-align:right;">
-13
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -3384,10 +3384,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 11.18
@@ -3396,10 +3396,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -3492,10 +3492,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 26.03
@@ -3504,10 +3504,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -3728,10 +3728,10 @@ NA
 24
 </td>
 <td style="text-align:right;">
-0
+24
 </td>
 <td style="text-align:right;">
-24
+0
 </td>
 <td style="text-align:right;">
 20.34
@@ -3764,10 +3764,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -3848,10 +3848,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 2.63
@@ -3860,10 +3860,10 @@ NA
 26
 </td>
 <td style="text-align:right;">
-0
+26
 </td>
 <td style="text-align:right;">
-26
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -3908,10 +3908,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -4028,10 +4028,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -4228,10 +4228,10 @@ NA
 28
 </td>
 <td style="text-align:right;">
-0
+28
 </td>
 <td style="text-align:right;">
-28
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -5060,10 +5060,10 @@ NA
 14
 </td>
 <td style="text-align:right;">
-0
+14
 </td>
 <td style="text-align:right;">
-14
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -5084,10 +5084,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -5156,10 +5156,10 @@ NA
 136
 </td>
 <td style="text-align:right;">
-135
+0
 </td>
 <td style="text-align:right;">
-0
+135
 </td>
 <td style="text-align:right;">
 NA
@@ -7032,10 +7032,10 @@ NA
 143
 </td>
 <td style="text-align:right;">
-0
+143
 </td>
 <td style="text-align:right;">
-143
+0
 </td>
 <td style="text-align:right;">
 62.75
@@ -7056,10 +7056,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -7092,10 +7092,10 @@ NA
 58
 </td>
 <td style="text-align:right;">
-1
+57
 </td>
 <td style="text-align:right;">
-57
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -7164,10 +7164,10 @@ NA
 87
 </td>
 <td style="text-align:right;">
-87
+0
 </td>
 <td style="text-align:right;">
-0
+87
 </td>
 <td style="text-align:right;">
 274.98
@@ -7176,10 +7176,10 @@ NA
 71
 </td>
 <td style="text-align:right;">
-0
+71
 </td>
 <td style="text-align:right;">
-71
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -7200,10 +7200,10 @@ NA
 42
 </td>
 <td style="text-align:right;">
-0
+42
 </td>
 <td style="text-align:right;">
-42
+0
 </td>
 <td style="text-align:right;">
 21.80
@@ -7224,10 +7224,10 @@ NA
 38
 </td>
 <td style="text-align:right;">
-0
+38
 </td>
 <td style="text-align:right;">
-38
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -7996,10 +7996,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -9600,10 +9600,10 @@ NA
 70
 </td>
 <td style="text-align:right;">
-0
+70
 </td>
 <td style="text-align:right;">
-70
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -9648,12 +9648,12 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 0.00
 </td>
 <td style="text-align:right;">
@@ -9684,10 +9684,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 NA
@@ -9744,10 +9744,10 @@ NA
 20
 </td>
 <td style="text-align:right;">
-0
+20
 </td>
 <td style="text-align:right;">
-20
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -10812,10 +10812,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -11204,10 +11204,10 @@ NA
 15
 </td>
 <td style="text-align:right;">
-0
+15
 </td>
 <td style="text-align:right;">
-15
+0
 </td>
 <td style="text-align:right;">
 10.34
@@ -11216,10 +11216,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 0.58
@@ -11264,10 +11264,10 @@ NA
 41
 </td>
 <td style="text-align:right;">
-0
+41
 </td>
 <td style="text-align:right;">
-41
+0
 </td>
 <td style="text-align:right;">
 23.34
@@ -11276,10 +11276,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -11324,10 +11324,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 12.30
@@ -11336,10 +11336,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -11432,10 +11432,10 @@ NA
 59
 </td>
 <td style="text-align:right;">
-0
+59
 </td>
 <td style="text-align:right;">
-59
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -11456,10 +11456,10 @@ NA
 28
 </td>
 <td style="text-align:right;">
-0
+28
 </td>
 <td style="text-align:right;">
-28
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -11540,10 +11540,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 0.09
@@ -11552,10 +11552,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -11632,10 +11632,10 @@ NA
 22
 </td>
 <td style="text-align:right;">
-0
+22
 </td>
 <td style="text-align:right;">
-22
+0
 </td>
 <td style="text-align:right;">
 404.66
@@ -11716,10 +11716,10 @@ NA
 8
 </td>
 <td style="text-align:right;">
-0
+8
 </td>
 <td style="text-align:right;">
-8
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -12476,10 +12476,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 106.00
@@ -12560,10 +12560,10 @@ NA
 79
 </td>
 <td style="text-align:right;">
-0
+79
 </td>
 <td style="text-align:right;">
-79
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -12608,10 +12608,10 @@ NA
 243
 </td>
 <td style="text-align:right;">
-0
+243
 </td>
 <td style="text-align:right;">
-243
+0
 </td>
 <td style="text-align:right;">
 1.20
@@ -12620,10 +12620,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -12656,10 +12656,10 @@ NA
 117
 </td>
 <td style="text-align:right;">
-0
+117
 </td>
 <td style="text-align:right;">
-117
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -12868,10 +12868,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 64.22
@@ -12952,10 +12952,10 @@ NA
 15
 </td>
 <td style="text-align:right;">
-0
+15
 </td>
 <td style="text-align:right;">
-15
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -13000,10 +13000,10 @@ NA
 22
 </td>
 <td style="text-align:right;">
-0
+22
 </td>
 <td style="text-align:right;">
-22
+0
 </td>
 <td style="text-align:right;">
 27.53
@@ -13024,10 +13024,10 @@ NA
 13
 </td>
 <td style="text-align:right;">
-0
+13
 </td>
 <td style="text-align:right;">
-13
+0
 </td>
 <td style="text-align:right;">
 119.96
@@ -13060,10 +13060,10 @@ NA
 68
 </td>
 <td style="text-align:right;">
-0
+68
 </td>
 <td style="text-align:right;">
-68
+0
 </td>
 <td style="text-align:right;">
 32.66
@@ -13072,10 +13072,10 @@ NA
 172
 </td>
 <td style="text-align:right;">
-0
+171
 </td>
 <td style="text-align:right;">
-171
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -13096,10 +13096,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -13168,10 +13168,10 @@ NA
 90
 </td>
 <td style="text-align:right;">
-1
+88
 </td>
 <td style="text-align:right;">
-88
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -13284,10 +13284,10 @@ NA
 435
 </td>
 <td style="text-align:right;">
-0
+434
 </td>
 <td style="text-align:right;">
-434
+0
 </td>
 <td style="text-align:right;">
 0.46
@@ -13320,10 +13320,10 @@ NA
 565
 </td>
 <td style="text-align:right;">
-2
+562
 </td>
 <td style="text-align:right;">
-562
+2
 </td>
 <td style="text-align:right;">
 NA
@@ -13344,10 +13344,10 @@ NA
 1224
 </td>
 <td style="text-align:right;">
-0
+1223
 </td>
 <td style="text-align:right;">
-1223
+0
 </td>
 <td style="text-align:right;">
 150.73
@@ -13356,10 +13356,10 @@ NA
 101
 </td>
 <td style="text-align:right;">
-0
+101
 </td>
 <td style="text-align:right;">
-101
+0
 </td>
 <td style="text-align:right;">
 929.97
@@ -13368,10 +13368,10 @@ NA
 482
 </td>
 <td style="text-align:right;">
-0
+482
 </td>
 <td style="text-align:right;">
-482
+0
 </td>
 <td style="text-align:right;">
 535.69
@@ -13380,10 +13380,10 @@ NA
 239
 </td>
 <td style="text-align:right;">
-0
+239
 </td>
 <td style="text-align:right;">
-239
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -13428,10 +13428,10 @@ NA
 33
 </td>
 <td style="text-align:right;">
-1
+32
 </td>
 <td style="text-align:right;">
-32
+1
 </td>
 <td style="text-align:right;">
 79.57
@@ -13440,10 +13440,10 @@ NA
 45
 </td>
 <td style="text-align:right;">
-0
+45
 </td>
 <td style="text-align:right;">
-45
+0
 </td>
 <td style="text-align:right;">
 38.12
@@ -13452,10 +13452,10 @@ NA
 13
 </td>
 <td style="text-align:right;">
-0
+13
 </td>
 <td style="text-align:right;">
-13
+0
 </td>
 <td style="text-align:right;">
 18.23
@@ -13464,10 +13464,10 @@ NA
 232
 </td>
 <td style="text-align:right;">
-0
+232
 </td>
 <td style="text-align:right;">
-232
+0
 </td>
 <td style="text-align:right;">
 348.54
@@ -13476,10 +13476,10 @@ NA
 51
 </td>
 <td style="text-align:right;">
-1
+50
 </td>
 <td style="text-align:right;">
-50
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -13548,12 +13548,12 @@ NA
 421
 </td>
 <td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
 419
 </td>
 <td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -13572,10 +13572,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -13632,10 +13632,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -14200,10 +14200,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 64.74
@@ -16184,10 +16184,10 @@ NA
 50
 </td>
 <td style="text-align:right;">
-0
+50
 </td>
 <td style="text-align:right;">
-50
+0
 </td>
 <td style="text-align:right;">
 113.55
@@ -16196,10 +16196,10 @@ NA
 48
 </td>
 <td style="text-align:right;">
-0
+48
 </td>
 <td style="text-align:right;">
-48
+0
 </td>
 <td style="text-align:right;">
 181.50
@@ -16208,10 +16208,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 222.91
@@ -16220,10 +16220,10 @@ NA
 87
 </td>
 <td style="text-align:right;">
-29
+57
 </td>
 <td style="text-align:right;">
-57
+29
 </td>
 <td style="text-align:right;">
 100.45
@@ -16232,10 +16232,10 @@ NA
 31
 </td>
 <td style="text-align:right;">
-0
+31
 </td>
 <td style="text-align:right;">
-31
+0
 </td>
 <td style="text-align:right;">
 117.90
@@ -16244,10 +16244,10 @@ NA
 8
 </td>
 <td style="text-align:right;">
-8
+0
 </td>
 <td style="text-align:right;">
-0
+8
 </td>
 <td style="text-align:right;">
 166.68
@@ -16256,10 +16256,10 @@ NA
 41
 </td>
 <td style="text-align:right;">
-41
+0
 </td>
 <td style="text-align:right;">
-0
+41
 </td>
 <td style="text-align:right;">
 109.07
@@ -16268,10 +16268,10 @@ NA
 60
 </td>
 <td style="text-align:right;">
-0
+60
 </td>
 <td style="text-align:right;">
-60
+0
 </td>
 <td style="text-align:right;">
 82.31
@@ -16280,10 +16280,10 @@ NA
 13
 </td>
 <td style="text-align:right;">
-0
+13
 </td>
 <td style="text-align:right;">
-13
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -16304,10 +16304,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -16316,10 +16316,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 37.26
@@ -16328,10 +16328,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 64.14
@@ -16340,10 +16340,10 @@ NA
 30
 </td>
 <td style="text-align:right;">
-0
+30
 </td>
 <td style="text-align:right;">
-30
+0
 </td>
 <td style="text-align:right;">
 122.08
@@ -16376,10 +16376,10 @@ NA
 14
 </td>
 <td style="text-align:right;">
-0
+14
 </td>
 <td style="text-align:right;">
-14
+0
 </td>
 <td style="text-align:right;">
 27.63
@@ -16388,10 +16388,10 @@ NA
 19
 </td>
 <td style="text-align:right;">
-6
+13
 </td>
 <td style="text-align:right;">
-13
+6
 </td>
 <td style="text-align:right;">
 110.50
@@ -16400,10 +16400,10 @@ NA
 39
 </td>
 <td style="text-align:right;">
-0
+39
 </td>
 <td style="text-align:right;">
-39
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -16412,10 +16412,10 @@ NA
 120
 </td>
 <td style="text-align:right;">
-0
+119
 </td>
 <td style="text-align:right;">
-119
+0
 </td>
 <td style="text-align:right;">
 135.94
@@ -16424,10 +16424,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
 0.31
@@ -18728,10 +18728,10 @@ NA
 71
 </td>
 <td style="text-align:right;">
-71
+0
 </td>
 <td style="text-align:right;">
-0
+71
 </td>
 <td style="text-align:right;">
 NA
@@ -22424,10 +22424,10 @@ NA
 33
 </td>
 <td style="text-align:right;">
-0
+33
 </td>
 <td style="text-align:right;">
-33
+0
 </td>
 <td style="text-align:right;">
 116.57
@@ -22436,10 +22436,10 @@ NA
 9
 </td>
 <td style="text-align:right;">
-0
+9
 </td>
 <td style="text-align:right;">
-9
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -22448,10 +22448,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -22484,10 +22484,10 @@ NA
 28
 </td>
 <td style="text-align:right;">
-28
+0
 </td>
 <td style="text-align:right;">
-0
+28
 </td>
 <td style="text-align:right;">
 NA
@@ -22532,10 +22532,10 @@ NA
 37
 </td>
 <td style="text-align:right;">
-0
+37
 </td>
 <td style="text-align:right;">
-37
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -22568,10 +22568,10 @@ NA
 15
 </td>
 <td style="text-align:right;">
-0
+15
 </td>
 <td style="text-align:right;">
-15
+0
 </td>
 <td style="text-align:right;">
 29.92
@@ -22580,10 +22580,10 @@ NA
 57
 </td>
 <td style="text-align:right;">
-0
+57
 </td>
 <td style="text-align:right;">
-57
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -22604,10 +22604,10 @@ NA
 26
 </td>
 <td style="text-align:right;">
-0
+26
 </td>
 <td style="text-align:right;">
-26
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -26620,10 +26620,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 34.92
@@ -26632,10 +26632,10 @@ NA
 17
 </td>
 <td style="text-align:right;">
-17
+0
 </td>
 <td style="text-align:right;">
-0
+17
 </td>
 <td style="text-align:right;">
 NA
@@ -26668,10 +26668,10 @@ NA
 51
 </td>
 <td style="text-align:right;">
-51
+0
 </td>
 <td style="text-align:right;">
-0
+51
 </td>
 <td style="text-align:right;">
 NA
@@ -26692,10 +26692,10 @@ NA
 38
 </td>
 <td style="text-align:right;">
-0
+38
 </td>
 <td style="text-align:right;">
-38
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -26716,10 +26716,10 @@ NA
 144
 </td>
 <td style="text-align:right;">
-144
+0
 </td>
 <td style="text-align:right;">
-0
+144
 </td>
 <td style="text-align:right;">
 NA
@@ -26740,10 +26740,10 @@ NA
 17
 </td>
 <td style="text-align:right;">
-17
+0
 </td>
 <td style="text-align:right;">
-0
+17
 </td>
 <td style="text-align:right;">
 NA
@@ -26788,10 +26788,10 @@ NA
 38
 </td>
 <td style="text-align:right;">
-0
+38
 </td>
 <td style="text-align:right;">
-38
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -27692,10 +27692,10 @@ NA
 79
 </td>
 <td style="text-align:right;">
-0
+79
 </td>
 <td style="text-align:right;">
-79
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -28332,10 +28332,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -29996,10 +29996,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -35488,10 +35488,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -35584,10 +35584,10 @@ NA
 22
 </td>
 <td style="text-align:right;">
-0
+21
 </td>
 <td style="text-align:right;">
-21
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -35632,10 +35632,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -36568,10 +36568,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -36592,10 +36592,10 @@ NA
 44
 </td>
 <td style="text-align:right;">
-0
+44
 </td>
 <td style="text-align:right;">
-44
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -36688,10 +36688,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -38292,10 +38292,10 @@ NA
 14
 </td>
 <td style="text-align:right;">
-14
+0
 </td>
 <td style="text-align:right;">
-0
+14
 </td>
 <td style="text-align:right;">
 NA
@@ -38316,10 +38316,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 96.28
@@ -38328,10 +38328,10 @@ NA
 62
 </td>
 <td style="text-align:right;">
-0
+62
 </td>
 <td style="text-align:right;">
-62
+0
 </td>
 <td style="text-align:right;">
 60.60
@@ -38340,10 +38340,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -38364,10 +38364,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
 5.71
@@ -38376,10 +38376,10 @@ NA
 161
 </td>
 <td style="text-align:right;">
-0
+161
 </td>
 <td style="text-align:right;">
-161
+0
 </td>
 <td style="text-align:right;">
 188.67
@@ -38436,10 +38436,10 @@ NA
 8
 </td>
 <td style="text-align:right;">
-8
+0
 </td>
 <td style="text-align:right;">
-0
+8
 </td>
 <td style="text-align:right;">
 13.06
@@ -38448,10 +38448,10 @@ NA
 132
 </td>
 <td style="text-align:right;">
-0
+132
 </td>
 <td style="text-align:right;">
-132
+0
 </td>
 <td style="text-align:right;">
 0.07
@@ -38460,10 +38460,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 126.76
@@ -38484,10 +38484,10 @@ NA
 83
 </td>
 <td style="text-align:right;">
-0
+83
 </td>
 <td style="text-align:right;">
-83
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -38568,10 +38568,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -38636,10 +38636,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -39612,10 +39612,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -44912,10 +44912,10 @@ NA
 24
 </td>
 <td style="text-align:right;">
-0
+24
 </td>
 <td style="text-align:right;">
-24
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -50296,10 +50296,10 @@ NA
 104
 </td>
 <td style="text-align:right;">
-0
+104
 </td>
 <td style="text-align:right;">
-104
+0
 </td>
 <td style="text-align:right;">
 144.04
@@ -50308,10 +50308,10 @@ NA
 102
 </td>
 <td style="text-align:right;">
-0
+102
 </td>
 <td style="text-align:right;">
-102
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -50332,10 +50332,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -50368,10 +50368,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 123.91
@@ -50380,10 +50380,10 @@ NA
 49
 </td>
 <td style="text-align:right;">
-0
+48
 </td>
 <td style="text-align:right;">
-48
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -50416,10 +50416,10 @@ NA
 258
 </td>
 <td style="text-align:right;">
-0
+258
 </td>
 <td style="text-align:right;">
-258
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -50440,10 +50440,10 @@ NA
 125
 </td>
 <td style="text-align:right;">
-0
+125
 </td>
 <td style="text-align:right;">
-125
+0
 </td>
 <td style="text-align:right;">
 213.13
@@ -50500,10 +50500,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 22.57
@@ -50512,10 +50512,10 @@ NA
 253
 </td>
 <td style="text-align:right;">
-0
+252
 </td>
 <td style="text-align:right;">
-252
+0
 </td>
 <td style="text-align:right;">
 0.06
@@ -50548,10 +50548,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -50584,10 +50584,10 @@ NA
 856
 </td>
 <td style="text-align:right;">
-2
+851
 </td>
 <td style="text-align:right;">
-851
+2
 </td>
 <td style="text-align:right;">
 NA
@@ -50608,10 +50608,10 @@ NA
 208
 </td>
 <td style="text-align:right;">
-0
+208
 </td>
 <td style="text-align:right;">
-208
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -50656,10 +50656,10 @@ NA
 254
 </td>
 <td style="text-align:right;">
-0
+253
 </td>
 <td style="text-align:right;">
-253
+0
 </td>
 <td style="text-align:right;">
 1049.89
@@ -50668,10 +50668,10 @@ NA
 370
 </td>
 <td style="text-align:right;">
-1
+369
 </td>
 <td style="text-align:right;">
-369
+1
 </td>
 </tr>
 <tr>
@@ -50796,10 +50796,10 @@ NA
 32
 </td>
 <td style="text-align:right;">
-0
+31
 </td>
 <td style="text-align:right;">
-31
+0
 </td>
 <td style="text-align:right;">
 7.95
@@ -50808,10 +50808,10 @@ NA
 49
 </td>
 <td style="text-align:right;">
-0
+49
 </td>
 <td style="text-align:right;">
-49
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -50832,10 +50832,10 @@ NA
 98
 </td>
 <td style="text-align:right;">
-0
+98
 </td>
 <td style="text-align:right;">
-98
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -50880,10 +50880,10 @@ NA
 78
 </td>
 <td style="text-align:right;">
-0
+78
 </td>
 <td style="text-align:right;">
-78
+0
 </td>
 <td style="text-align:right;">
 1.22
@@ -53008,10 +53008,10 @@ NA
 25
 </td>
 <td style="text-align:right;">
-0
+25
 </td>
 <td style="text-align:right;">
-25
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -56132,82 +56132,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
 </td>
 <td style="text-align:right;">
 NA
@@ -56234,6 +56162,78 @@ NA
 0
 </td>
 <td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -56252,10 +56252,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 0.00
@@ -56276,22 +56276,22 @@ NA
 2
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 0.00
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -56312,10 +56312,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 0.00
@@ -56336,10 +56336,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 0.00
@@ -56348,10 +56348,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 0.00
@@ -56360,10 +56360,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 0.31
@@ -56372,54 +56372,6 @@ NA
 3
 </td>
 <td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
@@ -56432,22 +56384,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-0.00
-</td>
-<td style="text-align:right;">
 1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
 </td>
 <td style="text-align:right;">
 NA
@@ -56477,6 +56417,66 @@ NA
 0.00
 </td>
 <td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
@@ -56492,10 +56492,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 </tr>
 <tr>
@@ -56596,10 +56596,10 @@ NA
 14
 </td>
 <td style="text-align:right;">
-0
+14
 </td>
 <td style="text-align:right;">
-14
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -56668,12 +56668,12 @@ NA
 11
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 11
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -56860,10 +56860,10 @@ NA
 70
 </td>
 <td style="text-align:right;">
-0
+70
 </td>
 <td style="text-align:right;">
-70
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -57356,22 +57356,22 @@ NA
 14
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 14
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
 43
 </td>
 <td style="text-align:right;">
-43
+0
 </td>
 <td style="text-align:right;">
-0
+43
 </td>
 <td style="text-align:right;">
 NA
@@ -57392,10 +57392,10 @@ NA
 12
 </td>
 <td style="text-align:right;">
-12
+0
 </td>
 <td style="text-align:right;">
-0
+12
 </td>
 <td style="text-align:right;">
 NA
@@ -57404,10 +57404,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 NA
@@ -57452,22 +57452,22 @@ NA
 4
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 4
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -57488,12 +57488,12 @@ NA
 17
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 17
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -57512,10 +57512,10 @@ NA
 16
 </td>
 <td style="text-align:right;">
-16
+0
 </td>
 <td style="text-align:right;">
-0
+16
 </td>
 <td style="text-align:right;">
 NA
@@ -57536,10 +57536,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
 NA
@@ -57572,22 +57572,22 @@ NA
 1
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
 12
 </td>
 <td style="text-align:right;">
-12
+0
 </td>
 <td style="text-align:right;">
-0
+12
 </td>
 <td style="text-align:right;">
 NA
@@ -57596,10 +57596,10 @@ NA
 29
 </td>
 <td style="text-align:right;">
-29
+0
 </td>
 <td style="text-align:right;">
-0
+29
 </td>
 <td style="text-align:right;">
 NA
@@ -57608,10 +57608,10 @@ NA
 52
 </td>
 <td style="text-align:right;">
-51
+0
 </td>
 <td style="text-align:right;">
-0
+51
 </td>
 <td style="text-align:right;">
 NA
@@ -57620,10 +57620,10 @@ NA
 20
 </td>
 <td style="text-align:right;">
-20
+0
 </td>
 <td style="text-align:right;">
-0
+20
 </td>
 <td style="text-align:right;">
 NA
@@ -57632,12 +57632,12 @@ NA
 49
 </td>
 <td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 48
 </td>
 <td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -57656,10 +57656,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -57668,10 +57668,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
 NA
@@ -57692,10 +57692,10 @@ NA
 8
 </td>
 <td style="text-align:right;">
-8
+0
 </td>
 <td style="text-align:right;">
-0
+8
 </td>
 <td style="text-align:right;">
 NA
@@ -57740,10 +57740,10 @@ NA
 13
 </td>
 <td style="text-align:right;">
-13
+0
 </td>
 <td style="text-align:right;">
-0
+13
 </td>
 </tr>
 <tr>
@@ -59128,10 +59128,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -59176,10 +59176,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -59568,10 +59568,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -60280,10 +60280,10 @@ CCND3
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 14.45
@@ -60292,10 +60292,10 @@ CCND3
 4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
 NA
@@ -61136,10 +61136,10 @@ SLC29A1
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 77.36
@@ -61148,10 +61148,10 @@ SLC29A1
 31
 </td>
 <td style="text-align:right;">
-0
+31
 </td>
 <td style="text-align:right;">
-31
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -61172,10 +61172,10 @@ SLC29A1
 18
 </td>
 <td style="text-align:right;">
-0
+18
 </td>
 <td style="text-align:right;">
-18
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -61268,10 +61268,10 @@ SLC29A1
 10
 </td>
 <td style="text-align:right;">
-0
+10
 </td>
 <td style="text-align:right;">
-10
+0
 </td>
 <td style="text-align:right;">
 7.48
@@ -61304,10 +61304,10 @@ SLC29A1
 11
 </td>
 <td style="text-align:right;">
-0
+11
 </td>
 <td style="text-align:right;">
-11
+0
 </td>
 <td style="text-align:right;">
 20.88
@@ -61316,10 +61316,10 @@ SLC29A1
 28
 </td>
 <td style="text-align:right;">
-25
+3
 </td>
 <td style="text-align:right;">
-3
+25
 </td>
 <td style="text-align:right;">
 41.41
@@ -62884,10 +62884,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
 NA
@@ -64048,10 +64048,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 45.41
@@ -64060,10 +64060,10 @@ NA
 75
 </td>
 <td style="text-align:right;">
-75
+0
 </td>
 <td style="text-align:right;">
-0
+75
 </td>
 <td style="text-align:right;">
 NA
@@ -64108,10 +64108,10 @@ NA
 24
 </td>
 <td style="text-align:right;">
-0
+24
 </td>
 <td style="text-align:right;">
-24
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -64132,12 +64132,12 @@ NA
 46
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 46
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -64168,10 +64168,10 @@ NA
 31
 </td>
 <td style="text-align:right;">
-0
+31
 </td>
 <td style="text-align:right;">
-31
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -64204,10 +64204,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 0.17
@@ -64216,10 +64216,10 @@ NA
 81
 </td>
 <td style="text-align:right;">
-0
+81
 </td>
 <td style="text-align:right;">
-81
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -64252,10 +64252,10 @@ NA
 88
 </td>
 <td style="text-align:right;">
-0
+88
 </td>
 <td style="text-align:right;">
-88
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -64324,13 +64324,16 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 6
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 0.00
+</td>
+<td style="text-align:right;">
+424
 </td>
 <td style="text-align:right;">
 424
@@ -64339,19 +64342,16 @@ NA
 0
 </td>
 <td style="text-align:right;">
-424
-</td>
-<td style="text-align:right;">
 0.00
 </td>
 <td style="text-align:right;">
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -64396,10 +64396,10 @@ NA
 8
 </td>
 <td style="text-align:right;">
-0
+8
 </td>
 <td style="text-align:right;">
-8
+0
 </td>
 </tr>
 <tr>
@@ -64608,12 +64608,12 @@ NA
 47
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 47
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -64764,10 +64764,10 @@ NA
 225
 </td>
 <td style="text-align:right;">
-0
+225
 </td>
 <td style="text-align:right;">
-225
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -69268,10 +69268,10 @@ NA
 24
 </td>
 <td style="text-align:right;">
-0
+24
 </td>
 <td style="text-align:right;">
-24
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -69444,10 +69444,10 @@ NA
 41
 </td>
 <td style="text-align:right;">
-0
+41
 </td>
 <td style="text-align:right;">
-41
+0
 </td>
 <td style="text-align:right;">
 48.82
@@ -69456,10 +69456,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-4
+1
 </td>
 <td style="text-align:right;">
-1
+4
 </td>
 <td style="text-align:right;">
 2.15
@@ -69516,10 +69516,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -69564,10 +69564,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -69600,10 +69600,10 @@ NA
 34
 </td>
 <td style="text-align:right;">
-0
+34
 </td>
 <td style="text-align:right;">
-34
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -69636,12 +69636,12 @@ NA
 49
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 49
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -69768,10 +69768,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -69932,10 +69932,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 0.18
@@ -69992,10 +69992,10 @@ NA
 68
 </td>
 <td style="text-align:right;">
-0
+68
 </td>
 <td style="text-align:right;">
-68
+0
 </td>
 <td style="text-align:right;">
 38.12
@@ -70016,12 +70016,12 @@ NA
 9
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 9
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -70052,10 +70052,10 @@ NA
 21
 </td>
 <td style="text-align:right;">
-0
+21
 </td>
 <td style="text-align:right;">
-21
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -70088,10 +70088,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 0.07
@@ -70172,10 +70172,10 @@ NA
 175
 </td>
 <td style="text-align:right;">
-0
+175
 </td>
 <td style="text-align:right;">
-175
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -73120,10 +73120,10 @@ NA
 132
 </td>
 <td style="text-align:right;">
-0
+132
 </td>
 <td style="text-align:right;">
-132
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -73628,10 +73628,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -75280,10 +75280,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 41.33
@@ -75304,10 +75304,10 @@ NA
 48
 </td>
 <td style="text-align:right;">
-48
+0
 </td>
 <td style="text-align:right;">
-0
+48
 </td>
 <td style="text-align:right;">
 5.33
@@ -75340,10 +75340,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 3.02
@@ -75352,10 +75352,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
 NA
@@ -75424,10 +75424,10 @@ NA
 47
 </td>
 <td style="text-align:right;">
-47
+0
 </td>
 <td style="text-align:right;">
-0
+47
 </td>
 <td style="text-align:right;">
 NA
@@ -75696,10 +75696,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -75708,10 +75708,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -77800,10 +77800,10 @@ NA
 40
 </td>
 <td style="text-align:right;">
-39
+1
 </td>
 <td style="text-align:right;">
-1
+39
 </td>
 <td style="text-align:right;">
 NA
@@ -77884,10 +77884,10 @@ NA
 86
 </td>
 <td style="text-align:right;">
-60
+26
 </td>
 <td style="text-align:right;">
-26
+60
 </td>
 <td style="text-align:right;">
 NA
@@ -77956,10 +77956,10 @@ NA
 84
 </td>
 <td style="text-align:right;">
-0
+84
 </td>
 <td style="text-align:right;">
-84
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -79048,10 +79048,10 @@ NA
 88
 </td>
 <td style="text-align:right;">
-0
+88
 </td>
 <td style="text-align:right;">
-88
+0
 </td>
 <td style="text-align:right;">
 4.11
@@ -79060,10 +79060,10 @@ NA
 37
 </td>
 <td style="text-align:right;">
-37
+0
 </td>
 <td style="text-align:right;">
-0
+37
 </td>
 <td style="text-align:right;">
 NA
@@ -79084,10 +79084,10 @@ NA
 8
 </td>
 <td style="text-align:right;">
-1
+7
 </td>
 <td style="text-align:right;">
-7
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -79132,10 +79132,10 @@ NA
 18
 </td>
 <td style="text-align:right;">
-0
+18
 </td>
 <td style="text-align:right;">
-18
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -79192,10 +79192,10 @@ NA
 20
 </td>
 <td style="text-align:right;">
-0
+20
 </td>
 <td style="text-align:right;">
-20
+0
 </td>
 <td style="text-align:right;">
 9.86
@@ -79204,10 +79204,10 @@ NA
 56
 </td>
 <td style="text-align:right;">
-0
+56
 </td>
 <td style="text-align:right;">
-56
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -79360,10 +79360,10 @@ NA
 41
 </td>
 <td style="text-align:right;">
-0
+41
 </td>
 <td style="text-align:right;">
-41
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -79856,10 +79856,10 @@ NA
 32
 </td>
 <td style="text-align:right;">
-0
+32
 </td>
 <td style="text-align:right;">
-32
+0
 </td>
 <td style="text-align:right;">
 44.72
@@ -80024,10 +80024,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 153.77
@@ -82128,10 +82128,10 @@ NA
 8
 </td>
 <td style="text-align:right;">
-8
+0
 </td>
 <td style="text-align:right;">
-0
+8
 </td>
 <td style="text-align:right;">
 NA
@@ -82376,12 +82376,12 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -82640,10 +82640,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -84016,10 +84016,10 @@ NA
 23
 </td>
 <td style="text-align:right;">
-0
+23
 </td>
 <td style="text-align:right;">
-23
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -85276,10 +85276,10 @@ NA
 47
 </td>
 <td style="text-align:right;">
-0
+47
 </td>
 <td style="text-align:right;">
-47
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -86420,10 +86420,10 @@ NA
 292
 </td>
 <td style="text-align:right;">
-0
+292
 </td>
 <td style="text-align:right;">
-292
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -90280,10 +90280,10 @@ NA
 30
 </td>
 <td style="text-align:right;">
-30
+0
 </td>
 <td style="text-align:right;">
-0
+30
 </td>
 <td style="text-align:right;">
 NA
@@ -93156,10 +93156,10 @@ NA
 17
 </td>
 <td style="text-align:right;">
-0
+17
 </td>
 <td style="text-align:right;">
-17
+0
 </td>
 <td style="text-align:right;">
 26.05
@@ -93168,10 +93168,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
 71.38
@@ -93180,10 +93180,10 @@ NA
 75
 </td>
 <td style="text-align:right;">
-0
+74
 </td>
 <td style="text-align:right;">
-74
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -93204,10 +93204,10 @@ NA
 50
 </td>
 <td style="text-align:right;">
-0
+50
 </td>
 <td style="text-align:right;">
-50
+0
 </td>
 <td style="text-align:right;">
 7.42
@@ -93216,10 +93216,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 32.21
@@ -93228,10 +93228,10 @@ NA
 13
 </td>
 <td style="text-align:right;">
-0
+13
 </td>
 <td style="text-align:right;">
-13
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -93264,10 +93264,10 @@ NA
 74
 </td>
 <td style="text-align:right;">
-1
+73
 </td>
 <td style="text-align:right;">
-73
+1
 </td>
 <td style="text-align:right;">
 0.00
@@ -93276,10 +93276,10 @@ NA
 56
 </td>
 <td style="text-align:right;">
-42
+14
 </td>
 <td style="text-align:right;">
-14
+42
 </td>
 <td style="text-align:right;">
 150.01
@@ -93288,10 +93288,10 @@ NA
 32
 </td>
 <td style="text-align:right;">
-0
+32
 </td>
 <td style="text-align:right;">
-32
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -93336,10 +93336,10 @@ NA
 40
 </td>
 <td style="text-align:right;">
-24
+15
 </td>
 <td style="text-align:right;">
-15
+24
 </td>
 <td style="text-align:right;">
 72.11
@@ -93348,10 +93348,10 @@ NA
 37
 </td>
 <td style="text-align:right;">
-32
+5
 </td>
 <td style="text-align:right;">
-5
+32
 </td>
 <td style="text-align:right;">
 NA
@@ -93396,10 +93396,10 @@ NA
 35
 </td>
 <td style="text-align:right;">
-0
+35
 </td>
 <td style="text-align:right;">
-35
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -93644,10 +93644,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -94488,10 +94488,10 @@ NA
 40
 </td>
 <td style="text-align:right;">
-0
+40
 </td>
 <td style="text-align:right;">
-40
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -94536,10 +94536,10 @@ NA
 161
 </td>
 <td style="text-align:right;">
-0
+161
 </td>
 <td style="text-align:right;">
-161
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -94596,10 +94596,10 @@ NA
 38
 </td>
 <td style="text-align:right;">
-14
+24
 </td>
 <td style="text-align:right;">
-24
+14
 </td>
 <td style="text-align:right;">
 NA
@@ -94704,10 +94704,10 @@ NA
 24
 </td>
 <td style="text-align:right;">
-0
+24
 </td>
 <td style="text-align:right;">
-24
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -96044,10 +96044,10 @@ ILK
 105
 </td>
 <td style="text-align:right;">
-0
+105
 </td>
 <td style="text-align:right;">
-105
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -96080,10 +96080,10 @@ NA
 45
 </td>
 <td style="text-align:right;">
-1
+44
 </td>
 <td style="text-align:right;">
-44
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -96116,10 +96116,10 @@ NA
 93
 </td>
 <td style="text-align:right;">
-0
+93
 </td>
 <td style="text-align:right;">
-93
+0
 </td>
 <td style="text-align:right;">
 115.53
@@ -96128,10 +96128,10 @@ NA
 55
 </td>
 <td style="text-align:right;">
-0
+55
 </td>
 <td style="text-align:right;">
-55
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -96152,10 +96152,10 @@ NA
 97
 </td>
 <td style="text-align:right;">
-0
+95
 </td>
 <td style="text-align:right;">
-95
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -96188,10 +96188,10 @@ NA
 127
 </td>
 <td style="text-align:right;">
-0
+127
 </td>
 <td style="text-align:right;">
-127
+0
 </td>
 <td style="text-align:right;">
 117.68
@@ -96200,10 +96200,10 @@ NA
 46
 </td>
 <td style="text-align:right;">
-0
+45
 </td>
 <td style="text-align:right;">
-45
+0
 </td>
 <td style="text-align:right;">
 65.57
@@ -96212,10 +96212,10 @@ NA
 36
 </td>
 <td style="text-align:right;">
-33
+3
 </td>
 <td style="text-align:right;">
-3
+33
 </td>
 <td style="text-align:right;">
 NA
@@ -96248,10 +96248,10 @@ NA
 61
 </td>
 <td style="text-align:right;">
-5
+56
 </td>
 <td style="text-align:right;">
-56
+5
 </td>
 <td style="text-align:right;">
 132.54
@@ -96260,10 +96260,10 @@ NA
 33
 </td>
 <td style="text-align:right;">
-3
+30
 </td>
 <td style="text-align:right;">
-30
+3
 </td>
 <td style="text-align:right;">
 NA
@@ -96296,12 +96296,12 @@ NA
 83
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 83
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -96320,10 +96320,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -96356,10 +96356,10 @@ NA
 9
 </td>
 <td style="text-align:right;">
-0
+9
 </td>
 <td style="text-align:right;">
-9
+0
 </td>
 <td style="text-align:right;">
 1.49
@@ -96380,10 +96380,10 @@ NA
 155
 </td>
 <td style="text-align:right;">
-0
+154
 </td>
 <td style="text-align:right;">
-154
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -96748,10 +96748,10 @@ NA
 43
 </td>
 <td style="text-align:right;">
-0
+43
 </td>
 <td style="text-align:right;">
-43
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -96832,10 +96832,10 @@ NA
 516
 </td>
 <td style="text-align:right;">
-0
+516
 </td>
 <td style="text-align:right;">
-516
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -99444,10 +99444,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 3.91
@@ -99660,10 +99660,10 @@ NA
 15
 </td>
 <td style="text-align:right;">
-0
+15
 </td>
 <td style="text-align:right;">
-15
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -101252,10 +101252,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -101608,10 +101608,10 @@ NA
 73
 </td>
 <td style="text-align:right;">
-0
+73
 </td>
 <td style="text-align:right;">
-73
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -101644,10 +101644,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -103224,10 +103224,10 @@ NA
 16
 </td>
 <td style="text-align:right;">
-16
+0
 </td>
 <td style="text-align:right;">
-0
+16
 </td>
 <td style="text-align:right;">
 NA
@@ -103556,10 +103556,10 @@ NA
 15
 </td>
 <td style="text-align:right;">
-15
+0
 </td>
 <td style="text-align:right;">
-0
+15
 </td>
 <td style="text-align:right;">
 202.15
@@ -103568,10 +103568,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-1
+5
 </td>
 <td style="text-align:right;">
-5
+1
 </td>
 <td style="text-align:right;">
 54.65
@@ -103580,10 +103580,10 @@ NA
 11
 </td>
 <td style="text-align:right;">
-0
+11
 </td>
 <td style="text-align:right;">
-11
+0
 </td>
 <td style="text-align:right;">
 194.66
@@ -103592,10 +103592,10 @@ NA
 33
 </td>
 <td style="text-align:right;">
-0
+33
 </td>
 <td style="text-align:right;">
-33
+0
 </td>
 <td style="text-align:right;">
 244.09
@@ -103604,10 +103604,10 @@ NA
 75
 </td>
 <td style="text-align:right;">
-23
+52
 </td>
 <td style="text-align:right;">
-52
+23
 </td>
 <td style="text-align:right;">
 99.29
@@ -103616,10 +103616,10 @@ NA
 40
 </td>
 <td style="text-align:right;">
-0
+40
 </td>
 <td style="text-align:right;">
-40
+0
 </td>
 <td style="text-align:right;">
 211.25
@@ -103628,10 +103628,10 @@ NA
 36
 </td>
 <td style="text-align:right;">
-0
+36
 </td>
 <td style="text-align:right;">
-36
+0
 </td>
 <td style="text-align:right;">
 44.08
@@ -103640,10 +103640,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 39.01
@@ -103652,10 +103652,10 @@ NA
 9
 </td>
 <td style="text-align:right;">
-0
+9
 </td>
 <td style="text-align:right;">
-9
+0
 </td>
 <td style="text-align:right;">
 119.75
@@ -103664,10 +103664,10 @@ NA
 50
 </td>
 <td style="text-align:right;">
-0
+50
 </td>
 <td style="text-align:right;">
-50
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -103700,10 +103700,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 45.14
@@ -103724,10 +103724,10 @@ NA
 12
 </td>
 <td style="text-align:right;">
-0
+12
 </td>
 <td style="text-align:right;">
-12
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -103748,10 +103748,10 @@ NA
 77
 </td>
 <td style="text-align:right;">
-18
+59
 </td>
 <td style="text-align:right;">
-59
+18
 </td>
 <td style="text-align:right;">
 NA
@@ -103904,10 +103904,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -105744,10 +105744,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -106624,10 +106624,10 @@ NA
 135
 </td>
 <td style="text-align:right;">
-0
+135
 </td>
 <td style="text-align:right;">
-135
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -106744,10 +106744,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -108596,10 +108596,10 @@ NA
 28
 </td>
 <td style="text-align:right;">
-0
+28
 </td>
 <td style="text-align:right;">
-28
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -108716,10 +108716,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 5.35
@@ -109048,10 +109048,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 211.58
@@ -112756,10 +112756,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -112780,10 +112780,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -113256,10 +113256,10 @@ NA
 42
 </td>
 <td style="text-align:right;">
-0
+42
 </td>
 <td style="text-align:right;">
-42
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -113316,10 +113316,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -113852,10 +113852,10 @@ NA
 53
 </td>
 <td style="text-align:right;">
-0
+53
 </td>
 <td style="text-align:right;">
-53
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -115656,10 +115656,10 @@ NA
 16
 </td>
 <td style="text-align:right;">
-0
+16
 </td>
 <td style="text-align:right;">
-16
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -115680,10 +115680,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 18.71
@@ -115704,10 +115704,10 @@ NA
 27
 </td>
 <td style="text-align:right;">
-0
+27
 </td>
 <td style="text-align:right;">
-27
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -115812,10 +115812,10 @@ NA
 12
 </td>
 <td style="text-align:right;">
-0
+12
 </td>
 <td style="text-align:right;">
-12
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -116060,10 +116060,10 @@ NA
 29
 </td>
 <td style="text-align:right;">
-0
+29
 </td>
 <td style="text-align:right;">
-29
+0
 </td>
 <td style="text-align:right;">
 46.71
@@ -116072,10 +116072,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 79.56
@@ -116084,10 +116084,10 @@ NA
 34
 </td>
 <td style="text-align:right;">
-0
+33
 </td>
 <td style="text-align:right;">
-33
+0
 </td>
 <td style="text-align:right;">
 75.84
@@ -116096,10 +116096,10 @@ NA
 41
 </td>
 <td style="text-align:right;">
-1
+40
 </td>
 <td style="text-align:right;">
-40
+1
 </td>
 <td style="text-align:right;">
 46.55
@@ -116108,10 +116108,10 @@ NA
 10
 </td>
 <td style="text-align:right;">
-7
+2
 </td>
 <td style="text-align:right;">
-2
+7
 </td>
 <td style="text-align:right;">
 79.96
@@ -116120,10 +116120,10 @@ NA
 21
 </td>
 <td style="text-align:right;">
-0
+21
 </td>
 <td style="text-align:right;">
-21
+0
 </td>
 <td style="text-align:right;">
 58.65
@@ -116132,10 +116132,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -116156,10 +116156,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -116192,10 +116192,10 @@ NA
 52
 </td>
 <td style="text-align:right;">
-0
+52
 </td>
 <td style="text-align:right;">
-52
+0
 </td>
 <td style="text-align:right;">
 73.74
@@ -116204,10 +116204,10 @@ NA
 126
 </td>
 <td style="text-align:right;">
-52
+74
 </td>
 <td style="text-align:right;">
-74
+52
 </td>
 <td style="text-align:right;">
 NA
@@ -116396,10 +116396,10 @@ NA
 1005
 </td>
 <td style="text-align:right;">
-1
+1004
 </td>
 <td style="text-align:right;">
-1004
+1
 </td>
 </tr>
 <tr>
@@ -116880,10 +116880,10 @@ NA
 39
 </td>
 <td style="text-align:right;">
-39
+0
 </td>
 <td style="text-align:right;">
-0
+39
 </td>
 <td style="text-align:right;">
 NA
@@ -116916,10 +116916,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -116988,10 +116988,10 @@ NA
 28
 </td>
 <td style="text-align:right;">
-0
+28
 </td>
 <td style="text-align:right;">
-28
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -117012,10 +117012,10 @@ NA
 36
 </td>
 <td style="text-align:right;">
-12
+24
 </td>
 <td style="text-align:right;">
-24
+12
 </td>
 <td style="text-align:right;">
 NA
@@ -117084,12 +117084,12 @@ NA
 547
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 546
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -117168,10 +117168,10 @@ NA
 128
 </td>
 <td style="text-align:right;">
-0
+128
 </td>
 <td style="text-align:right;">
-128
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -117724,10 +117724,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -117832,10 +117832,10 @@ NA
 104
 </td>
 <td style="text-align:right;">
-0
+104
 </td>
 <td style="text-align:right;">
-104
+0
 </td>
 <td style="text-align:right;">
 131.44
@@ -118320,10 +118320,10 @@ NA
 36
 </td>
 <td style="text-align:right;">
-0
+36
 </td>
 <td style="text-align:right;">
-36
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -119792,10 +119792,10 @@ NA
 39
 </td>
 <td style="text-align:right;">
-0
+39
 </td>
 <td style="text-align:right;">
-39
+0
 </td>
 <td style="text-align:right;">
 24.84
@@ -120196,10 +120196,10 @@ NA
 73
 </td>
 <td style="text-align:right;">
-0
+73
 </td>
 <td style="text-align:right;">
-73
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -120268,10 +120268,10 @@ NA
 107
 </td>
 <td style="text-align:right;">
-0
+107
 </td>
 <td style="text-align:right;">
-107
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -120340,10 +120340,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -120424,10 +120424,10 @@ NA
 77
 </td>
 <td style="text-align:right;">
-0
+77
 </td>
 <td style="text-align:right;">
-77
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -121028,10 +121028,10 @@ NA
 13
 </td>
 <td style="text-align:right;">
-0
+13
 </td>
 <td style="text-align:right;">
-13
+0
 </td>
 <td style="text-align:right;">
 2774.34
@@ -121040,10 +121040,10 @@ NA
 159
 </td>
 <td style="text-align:right;">
-58
+101
 </td>
 <td style="text-align:right;">
-101
+58
 </td>
 <td style="text-align:right;">
 333.84
@@ -121052,10 +121052,10 @@ NA
 146
 </td>
 <td style="text-align:right;">
-29
+117
 </td>
 <td style="text-align:right;">
-117
+29
 </td>
 <td style="text-align:right;">
 652.78
@@ -121064,10 +121064,10 @@ NA
 30
 </td>
 <td style="text-align:right;">
-0
+30
 </td>
 <td style="text-align:right;">
-30
+0
 </td>
 <td style="text-align:right;">
 810.31
@@ -121076,10 +121076,10 @@ NA
 102
 </td>
 <td style="text-align:right;">
-1
+101
 </td>
 <td style="text-align:right;">
-101
+1
 </td>
 <td style="text-align:right;">
 669.34
@@ -121088,10 +121088,10 @@ NA
 111
 </td>
 <td style="text-align:right;">
-109
+2
 </td>
 <td style="text-align:right;">
-2
+109
 </td>
 <td style="text-align:right;">
 641.69
@@ -121100,10 +121100,10 @@ NA
 157
 </td>
 <td style="text-align:right;">
-32
+125
 </td>
 <td style="text-align:right;">
-125
+32
 </td>
 <td style="text-align:right;">
 205.84
@@ -121112,10 +121112,10 @@ NA
 49
 </td>
 <td style="text-align:right;">
-0
+49
 </td>
 <td style="text-align:right;">
-49
+0
 </td>
 <td style="text-align:right;">
 1165.54
@@ -121124,10 +121124,10 @@ NA
 136
 </td>
 <td style="text-align:right;">
-57
+79
 </td>
 <td style="text-align:right;">
-79
+57
 </td>
 <td style="text-align:right;">
 NA
@@ -121148,10 +121148,10 @@ NA
 27
 </td>
 <td style="text-align:right;">
-0
+27
 </td>
 <td style="text-align:right;">
-27
+0
 </td>
 <td style="text-align:right;">
 1739.13
@@ -121160,10 +121160,10 @@ NA
 240
 </td>
 <td style="text-align:right;">
-0
+240
 </td>
 <td style="text-align:right;">
-240
+0
 </td>
 <td style="text-align:right;">
 814.02
@@ -121172,10 +121172,10 @@ NA
 132
 </td>
 <td style="text-align:right;">
-32
+100
 </td>
 <td style="text-align:right;">
-100
+32
 </td>
 <td style="text-align:right;">
 NA
@@ -121208,10 +121208,10 @@ NA
 82
 </td>
 <td style="text-align:right;">
-0
+82
 </td>
 <td style="text-align:right;">
-82
+0
 </td>
 <td style="text-align:right;">
 375.91
@@ -121220,10 +121220,10 @@ NA
 170
 </td>
 <td style="text-align:right;">
-35
+135
 </td>
 <td style="text-align:right;">
-135
+35
 </td>
 <td style="text-align:right;">
 1920.19
@@ -121232,10 +121232,10 @@ NA
 87
 </td>
 <td style="text-align:right;">
-0
+86
 </td>
 <td style="text-align:right;">
-86
+0
 </td>
 <td style="text-align:right;">
 0.49
@@ -121244,10 +121244,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 704.02
@@ -121256,10 +121256,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -121292,10 +121292,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 82.28
@@ -121304,10 +121304,10 @@ NA
 11
 </td>
 <td style="text-align:right;">
-0
+11
 </td>
 <td style="text-align:right;">
-11
+0
 </td>
 <td style="text-align:right;">
 554.00
@@ -121316,10 +121316,10 @@ NA
 22
 </td>
 <td style="text-align:right;">
-0
+22
 </td>
 <td style="text-align:right;">
-22
+0
 </td>
 <td style="text-align:right;">
 9.91
@@ -121328,10 +121328,10 @@ NA
 260
 </td>
 <td style="text-align:right;">
-0
+260
 </td>
 <td style="text-align:right;">
-260
+0
 </td>
 <td style="text-align:right;">
 506.86
@@ -121340,10 +121340,10 @@ NA
 106
 </td>
 <td style="text-align:right;">
-0
+106
 </td>
 <td style="text-align:right;">
-106
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -121364,10 +121364,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 26.23
@@ -121376,10 +121376,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 17.12
@@ -121388,10 +121388,10 @@ NA
 24
 </td>
 <td style="text-align:right;">
-0
+24
 </td>
 <td style="text-align:right;">
-24
+0
 </td>
 </tr>
 <tr>
@@ -121896,10 +121896,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -126436,10 +126436,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
 0.70
@@ -126448,10 +126448,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
 52.57
@@ -126460,10 +126460,10 @@ NA
 54
 </td>
 <td style="text-align:right;">
-0
+54
 </td>
 <td style="text-align:right;">
-54
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -126864,10 +126864,10 @@ NA
 20
 </td>
 <td style="text-align:right;">
-0
+20
 </td>
 <td style="text-align:right;">
-20
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -130180,10 +130180,10 @@ NA
 12
 </td>
 <td style="text-align:right;">
-12
+0
 </td>
 <td style="text-align:right;">
-0
+12
 </td>
 <td style="text-align:right;">
 27.06
@@ -130192,10 +130192,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-3
+1
 </td>
 <td style="text-align:right;">
-1
+3
 </td>
 <td style="text-align:right;">
 142.34
@@ -130204,10 +130204,10 @@ NA
 47
 </td>
 <td style="text-align:right;">
-11
+36
 </td>
 <td style="text-align:right;">
-36
+11
 </td>
 <td style="text-align:right;">
 NA
@@ -130228,10 +130228,10 @@ NA
 28
 </td>
 <td style="text-align:right;">
-4
+24
 </td>
 <td style="text-align:right;">
-24
+4
 </td>
 <td style="text-align:right;">
 131.62
@@ -130240,10 +130240,10 @@ NA
 46
 </td>
 <td style="text-align:right;">
-0
+46
 </td>
 <td style="text-align:right;">
-46
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -130264,10 +130264,10 @@ NA
 24
 </td>
 <td style="text-align:right;">
-0
+24
 </td>
 <td style="text-align:right;">
-24
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -130312,10 +130312,10 @@ NA
 17
 </td>
 <td style="text-align:right;">
-0
+17
 </td>
 <td style="text-align:right;">
-17
+0
 </td>
 <td style="text-align:right;">
 29.74
@@ -130324,10 +130324,10 @@ NA
 134
 </td>
 <td style="text-align:right;">
-100
+34
 </td>
 <td style="text-align:right;">
-34
+100
 </td>
 <td style="text-align:right;">
 443.16
@@ -130336,10 +130336,10 @@ NA
 52
 </td>
 <td style="text-align:right;">
-0
+52
 </td>
 <td style="text-align:right;">
-52
+0
 </td>
 <td style="text-align:right;">
 61.88
@@ -130348,10 +130348,10 @@ NA
 23
 </td>
 <td style="text-align:right;">
-23
+0
 </td>
 <td style="text-align:right;">
-0
+23
 </td>
 <td style="text-align:right;">
 90.35
@@ -130360,10 +130360,10 @@ NA
 53
 </td>
 <td style="text-align:right;">
-0
+53
 </td>
 <td style="text-align:right;">
-53
+0
 </td>
 <td style="text-align:right;">
 151.65
@@ -130372,10 +130372,10 @@ NA
 9
 </td>
 <td style="text-align:right;">
-1
+8
 </td>
 <td style="text-align:right;">
-8
+1
 </td>
 <td style="text-align:right;">
 32.47
@@ -130396,10 +130396,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 2.70
@@ -130408,10 +130408,10 @@ NA
 63
 </td>
 <td style="text-align:right;">
-0
+63
 </td>
 <td style="text-align:right;">
-63
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -131000,142 +131000,142 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
 2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -131404,10 +131404,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -131416,12 +131416,12 @@ NA
 8
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 8
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -131536,10 +131536,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -131548,10 +131548,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -131788,10 +131788,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 </tr>
 <tr>
@@ -131832,22 +131832,22 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 3
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
 11
 </td>
 <td style="text-align:right;">
-0
+11
 </td>
 <td style="text-align:right;">
-11
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -132168,10 +132168,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -136028,10 +136028,10 @@ NA
 48
 </td>
 <td style="text-align:right;">
-0
+47
 </td>
 <td style="text-align:right;">
-47
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -138132,10 +138132,10 @@ NA
 34
 </td>
 <td style="text-align:right;">
-0
+34
 </td>
 <td style="text-align:right;">
-34
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -138156,10 +138156,10 @@ NA
 25
 </td>
 <td style="text-align:right;">
-0
+25
 </td>
 <td style="text-align:right;">
-25
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -138444,10 +138444,10 @@ NA
 163
 </td>
 <td style="text-align:right;">
-0
+162
 </td>
 <td style="text-align:right;">
-162
+0
 </td>
 </tr>
 <tr>
@@ -138476,10 +138476,10 @@ RP11-686D22.8
 152
 </td>
 <td style="text-align:right;">
-0
+150
 </td>
 <td style="text-align:right;">
-150
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -138800,10 +138800,10 @@ NA
 13
 </td>
 <td style="text-align:right;">
-0
+13
 </td>
 <td style="text-align:right;">
-13
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -140592,10 +140592,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -142256,10 +142256,10 @@ LRRC37A2
 4
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
 18.74
@@ -142268,10 +142268,10 @@ LRRC37A2
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 7.39
@@ -142292,10 +142292,10 @@ LRRC37A2
 16
 </td>
 <td style="text-align:right;">
-0
+16
 </td>
 <td style="text-align:right;">
-16
+0
 </td>
 <td style="text-align:right;">
 35.53
@@ -142316,10 +142316,10 @@ LRRC37A2
 23
 </td>
 <td style="text-align:right;">
-0
+23
 </td>
 <td style="text-align:right;">
-23
+0
 </td>
 <td style="text-align:right;">
 20.38
@@ -142328,10 +142328,10 @@ LRRC37A2
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 15.72
@@ -142376,10 +142376,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 38.52
@@ -142388,10 +142388,10 @@ NA
 18
 </td>
 <td style="text-align:right;">
-0
+18
 </td>
 <td style="text-align:right;">
-18
+0
 </td>
 <td style="text-align:right;">
 17.33
@@ -142412,10 +142412,10 @@ NA
 156
 </td>
 <td style="text-align:right;">
-0
+156
 </td>
 <td style="text-align:right;">
-156
+0
 </td>
 <td style="text-align:right;">
 15.09
@@ -142436,10 +142436,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 78.00
@@ -144348,10 +144348,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -144420,10 +144420,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -144752,10 +144752,10 @@ DDX5
 29
 </td>
 <td style="text-align:right;">
-0
+29
 </td>
 <td style="text-align:right;">
-29
+0
 </td>
 <td style="text-align:right;">
 1361.77
@@ -145572,10 +145572,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
 0.00
@@ -145584,10 +145584,10 @@ NA
 4
 </td>
 <td style="text-align:right;">
-4
+0
 </td>
 <td style="text-align:right;">
-0
+4
 </td>
 <td style="text-align:right;">
 8.28
@@ -145680,10 +145680,10 @@ NA
 19
 </td>
 <td style="text-align:right;">
-0
+19
 </td>
 <td style="text-align:right;">
-19
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -145704,10 +145704,10 @@ NA
 12
 </td>
 <td style="text-align:right;">
-0
+12
 </td>
 <td style="text-align:right;">
-12
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -145764,10 +145764,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -145776,10 +145776,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -145896,10 +145896,10 @@ NA
 61
 </td>
 <td style="text-align:right;">
-0
+61
 </td>
 <td style="text-align:right;">
-61
+0
 </td>
 <td style="text-align:right;">
 27.29
@@ -145908,10 +145908,10 @@ NA
 18
 </td>
 <td style="text-align:right;">
-0
+18
 </td>
 <td style="text-align:right;">
-18
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -146428,10 +146428,10 @@ NA
 23
 </td>
 <td style="text-align:right;">
-0
+23
 </td>
 <td style="text-align:right;">
-23
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -146868,10 +146868,10 @@ NA
 91
 </td>
 <td style="text-align:right;">
-0
+91
 </td>
 <td style="text-align:right;">
-91
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -147676,10 +147676,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -148044,10 +148044,10 @@ POLI
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -148092,10 +148092,10 @@ NA
 18
 </td>
 <td style="text-align:right;">
-18
+0
 </td>
 <td style="text-align:right;">
-0
+18
 </td>
 <td style="text-align:right;">
 36.91
@@ -148104,10 +148104,10 @@ NA
 11
 </td>
 <td style="text-align:right;">
-0
+11
 </td>
 <td style="text-align:right;">
-11
+0
 </td>
 <td style="text-align:right;">
 34.91
@@ -148116,10 +148116,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -148248,10 +148248,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
 NA
@@ -148484,10 +148484,10 @@ NA
 15
 </td>
 <td style="text-align:right;">
-0
+15
 </td>
 <td style="text-align:right;">
-15
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -148520,10 +148520,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 3.26
@@ -148676,10 +148676,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 3.96
@@ -153252,10 +153252,10 @@ NA
 50
 </td>
 <td style="text-align:right;">
-0
+50
 </td>
 <td style="text-align:right;">
-50
+0
 </td>
 <td style="text-align:right;">
 109.91
@@ -153264,10 +153264,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -154500,10 +154500,10 @@ NA
 10
 </td>
 <td style="text-align:right;">
-0
+10
 </td>
 <td style="text-align:right;">
-10
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -156044,12 +156044,12 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -156116,10 +156116,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -156448,10 +156448,10 @@ NA
 116
 </td>
 <td style="text-align:right;">
-5
+111
 </td>
 <td style="text-align:right;">
-111
+5
 </td>
 <td style="text-align:right;">
 24.85
@@ -156460,10 +156460,10 @@ NA
 46
 </td>
 <td style="text-align:right;">
-46
+0
 </td>
 <td style="text-align:right;">
-0
+46
 </td>
 <td style="text-align:right;">
 NA
@@ -156580,10 +156580,10 @@ NA
 22
 </td>
 <td style="text-align:right;">
-0
+22
 </td>
 <td style="text-align:right;">
-22
+0
 </td>
 <td style="text-align:right;">
 20.30
@@ -156616,10 +156616,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -162404,10 +162404,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -163864,10 +163864,10 @@ NA
 2
 </td>
 <td style="text-align:right;">
-0
+2
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -166836,10 +166836,10 @@ NA
 62
 </td>
 <td style="text-align:right;">
-0
+62
 </td>
 <td style="text-align:right;">
-62
+0
 </td>
 <td style="text-align:right;">
 0.53
@@ -171152,10 +171152,10 @@ NA
 56
 </td>
 <td style="text-align:right;">
-0
+56
 </td>
 <td style="text-align:right;">
-56
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -171364,10 +171364,10 @@ NA
 20
 </td>
 <td style="text-align:right;">
-8
+12
 </td>
 <td style="text-align:right;">
-12
+8
 </td>
 <td style="text-align:right;">
 0.00
@@ -171388,10 +171388,10 @@ NA
 63
 </td>
 <td style="text-align:right;">
-63
+0
 </td>
 <td style="text-align:right;">
-0
+63
 </td>
 <td style="text-align:right;">
 10.33
@@ -171400,10 +171400,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
 0.00
@@ -171472,10 +171472,10 @@ NA
 52
 </td>
 <td style="text-align:right;">
-0
+51
 </td>
 <td style="text-align:right;">
-51
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -171484,10 +171484,10 @@ NA
 31
 </td>
 <td style="text-align:right;">
-31
+0
 </td>
 <td style="text-align:right;">
-0
+31
 </td>
 <td style="text-align:right;">
 55.55
@@ -171496,12 +171496,12 @@ NA
 95
 </td>
 <td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
 94
 </td>
 <td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
 NA
 </td>
 <td style="text-align:right;">
@@ -171556,10 +171556,10 @@ NA
 5
 </td>
 <td style="text-align:right;">
-0
+5
 </td>
 <td style="text-align:right;">
-5
+0
 </td>
 <td style="text-align:right;">
 9.23
@@ -171568,10 +171568,10 @@ NA
 86
 </td>
 <td style="text-align:right;">
-0
+86
 </td>
 <td style="text-align:right;">
-86
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -173064,10 +173064,10 @@ NA
 14
 </td>
 <td style="text-align:right;">
-0
+14
 </td>
 <td style="text-align:right;">
-14
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -173124,10 +173124,10 @@ NA
 7
 </td>
 <td style="text-align:right;">
-0
+7
 </td>
 <td style="text-align:right;">
-7
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -173184,10 +173184,10 @@ NA
 49
 </td>
 <td style="text-align:right;">
-0
+49
 </td>
 <td style="text-align:right;">
-49
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -173364,10 +173364,10 @@ NA
 736
 </td>
 <td style="text-align:right;">
-0
+736
 </td>
 <td style="text-align:right;">
-736
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -173884,10 +173884,10 @@ NA
 54
 </td>
 <td style="text-align:right;">
-0
+54
 </td>
 <td style="text-align:right;">
-54
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -175108,10 +175108,10 @@ NA
 95
 </td>
 <td style="text-align:right;">
-21
+74
 </td>
 <td style="text-align:right;">
-74
+21
 </td>
 <td style="text-align:right;">
 140.40
@@ -175120,10 +175120,10 @@ NA
 159
 </td>
 <td style="text-align:right;">
-113
+45
 </td>
 <td style="text-align:right;">
-45
+113
 </td>
 <td style="text-align:right;">
 36.54
@@ -175132,10 +175132,10 @@ NA
 43
 </td>
 <td style="text-align:right;">
-1
+41
 </td>
 <td style="text-align:right;">
-41
+1
 </td>
 <td style="text-align:right;">
 74.48
@@ -175144,10 +175144,10 @@ NA
 151
 </td>
 <td style="text-align:right;">
-0
+151
 </td>
 <td style="text-align:right;">
-151
+0
 </td>
 <td style="text-align:right;">
 228.05
@@ -175156,10 +175156,10 @@ NA
 129
 </td>
 <td style="text-align:right;">
-106
+23
 </td>
 <td style="text-align:right;">
-23
+106
 </td>
 <td style="text-align:right;">
 26.69
@@ -175168,10 +175168,10 @@ NA
 17
 </td>
 <td style="text-align:right;">
-16
+1
 </td>
 <td style="text-align:right;">
-1
+16
 </td>
 <td style="text-align:right;">
 46.93
@@ -175180,10 +175180,10 @@ NA
 8
 </td>
 <td style="text-align:right;">
-7
+1
 </td>
 <td style="text-align:right;">
-1
+7
 </td>
 <td style="text-align:right;">
 11.37
@@ -175204,10 +175204,10 @@ NA
 27
 </td>
 <td style="text-align:right;">
-0
+27
 </td>
 <td style="text-align:right;">
-27
+0
 </td>
 <td style="text-align:right;">
 212.57
@@ -175216,10 +175216,10 @@ NA
 57
 </td>
 <td style="text-align:right;">
-0
+57
 </td>
 <td style="text-align:right;">
-57
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -175228,10 +175228,10 @@ NA
 74
 </td>
 <td style="text-align:right;">
-0
+74
 </td>
 <td style="text-align:right;">
-74
+0
 </td>
 <td style="text-align:right;">
 28.32
@@ -175240,10 +175240,10 @@ NA
 204
 </td>
 <td style="text-align:right;">
-0
+204
 </td>
 <td style="text-align:right;">
-204
+0
 </td>
 <td style="text-align:right;">
 204.92
@@ -175252,10 +175252,10 @@ NA
 36
 </td>
 <td style="text-align:right;">
-0
+36
 </td>
 <td style="text-align:right;">
-36
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -175276,10 +175276,10 @@ NA
 48
 </td>
 <td style="text-align:right;">
-0
+47
 </td>
 <td style="text-align:right;">
-47
+0
 </td>
 <td style="text-align:right;">
 151.07
@@ -175288,10 +175288,10 @@ NA
 11
 </td>
 <td style="text-align:right;">
-0
+11
 </td>
 <td style="text-align:right;">
-11
+0
 </td>
 <td style="text-align:right;">
 163.63
@@ -175300,10 +175300,10 @@ NA
 24
 </td>
 <td style="text-align:right;">
-24
+0
 </td>
 <td style="text-align:right;">
-0
+24
 </td>
 <td style="text-align:right;">
 29.50
@@ -175312,10 +175312,10 @@ NA
 53
 </td>
 <td style="text-align:right;">
-0
+53
 </td>
 <td style="text-align:right;">
-53
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -175336,10 +175336,10 @@ NA
 71
 </td>
 <td style="text-align:right;">
-0
+71
 </td>
 <td style="text-align:right;">
-71
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -175360,10 +175360,10 @@ NA
 6
 </td>
 <td style="text-align:right;">
-0
+6
 </td>
 <td style="text-align:right;">
-6
+0
 </td>
 <td style="text-align:right;">
 346.22
@@ -175372,10 +175372,10 @@ NA
 3
 </td>
 <td style="text-align:right;">
-0
+3
 </td>
 <td style="text-align:right;">
-3
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -175396,10 +175396,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -175420,10 +175420,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
 NA
@@ -175456,10 +175456,10 @@ NA
 1089
 </td>
 <td style="text-align:right;">
-0
+1089
 </td>
 <td style="text-align:right;">
-1089
+0
 </td>
 <td style="text-align:right;">
 0.00
@@ -175468,10 +175468,10 @@ NA
 1
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 </tr>
 <tr>
@@ -177212,10 +177212,10 @@ NA
 36
 </td>
 <td style="text-align:right;">
-0
+36
 </td>
 <td style="text-align:right;">
-36
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -178284,10 +178284,10 @@ NA
 69
 </td>
 <td style="text-align:right;">
-0
+69
 </td>
 <td style="text-align:right;">
-69
+0
 </td>
 <td style="text-align:right;">
 NA
@@ -179665,7 +179665,7 @@ geneCounts[order(geneCounts,decreasing=TRUE)][1:40]</code></pre>
  1133.38  1129.64  1126.63  1111.10  1085.78  1080.38  1062.38  1062.21 </code></pre>
 <p>From the list above, ‘APC’ and ‘HUWE’ are known to be associated with cancer. ‘APC’ has an intronic mutation, so we dont get much reads from it in RNA-seq. ‘HUWE’ is a tumor suppressor gene which has a missense mutation, thus we recover some information about it. We can visualize the reference and alternative counts for each of these genes across all cells. We show only the genes with sense mutations. We also show the TPM/10 = TPTM below.</p>
 <pre class="r"><code>pos &lt;- seq(8,length(covmat),by=4)
-miss_muts &lt;- covmat[covmat$Type == &#39;Missense_Mutation&#39; | covmat$Type == &#39;Nonsense_Mutation&#39;,&quot;Gene&quot;]
+miss_muts &lt;- covmat[covmat$Type == &#39;Missense_Mutation&#39; | covmat$Type == &#39;Nonsense_Mutation&#39; | covmat$Type == &#39;Silent&#39;,&quot;Gene&quot;]
 miss_muts &lt;- miss_muts[rowSums(tpms[miss_muts,]) &gt; 500]
 miss_muts &lt;- miss_muts[order(rowSums(tpms[miss_muts,]),decreasing=TRUE)]
 for(mut in miss_muts) {
@@ -179675,7 +179675,7 @@ for(mut in miss_muts) {
   barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;,&quot;TPTM&quot;),
           col = c(&quot;red&quot;,&quot;blue&quot;,&quot;black&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Counts&#39;,main=mut)
 }</code></pre>
-<p><img src="Figs/unnamed-chunk-5-1.png" width="960" /><img src="Figs/unnamed-chunk-5-2.png" width="960" /><img src="Figs/unnamed-chunk-5-3.png" width="960" /><img src="Figs/unnamed-chunk-5-4.png" width="960" /><img src="Figs/unnamed-chunk-5-5.png" width="960" /><img src="Figs/unnamed-chunk-5-6.png" width="960" /><img src="Figs/unnamed-chunk-5-7.png" width="960" /><img src="Figs/unnamed-chunk-5-8.png" width="960" /><img src="Figs/unnamed-chunk-5-9.png" width="960" /><img src="Figs/unnamed-chunk-5-10.png" width="960" /><img src="Figs/unnamed-chunk-5-11.png" width="960" /><img src="Figs/unnamed-chunk-5-12.png" width="960" /><img src="Figs/unnamed-chunk-5-13.png" width="960" /><img src="Figs/unnamed-chunk-5-14.png" width="960" /><img src="Figs/unnamed-chunk-5-15.png" width="960" /><img src="Figs/unnamed-chunk-5-16.png" width="960" /><img src="Figs/unnamed-chunk-5-17.png" width="960" /><img src="Figs/unnamed-chunk-5-18.png" width="960" /><img src="Figs/unnamed-chunk-5-19.png" width="960" /><img src="Figs/unnamed-chunk-5-20.png" width="960" /><img src="Figs/unnamed-chunk-5-21.png" width="960" /><img src="Figs/unnamed-chunk-5-22.png" width="960" /><img src="Figs/unnamed-chunk-5-23.png" width="960" /><img src="Figs/unnamed-chunk-5-24.png" width="960" /></p>
+<p><img src="Figs/unnamed-chunk-6-1.png" width="960" /><img src="Figs/unnamed-chunk-6-2.png" width="960" /><img src="Figs/unnamed-chunk-6-3.png" width="960" /><img src="Figs/unnamed-chunk-6-4.png" width="960" /><img src="Figs/unnamed-chunk-6-5.png" width="960" /><img src="Figs/unnamed-chunk-6-6.png" width="960" /><img src="Figs/unnamed-chunk-6-7.png" width="960" /><img src="Figs/unnamed-chunk-6-8.png" width="960" /><img src="Figs/unnamed-chunk-6-9.png" width="960" /><img src="Figs/unnamed-chunk-6-10.png" width="960" /><img src="Figs/unnamed-chunk-6-11.png" width="960" /><img src="Figs/unnamed-chunk-6-12.png" width="960" /><img src="Figs/unnamed-chunk-6-13.png" width="960" /><img src="Figs/unnamed-chunk-6-14.png" width="960" /><img src="Figs/unnamed-chunk-6-15.png" width="960" /><img src="Figs/unnamed-chunk-6-16.png" width="960" /><img src="Figs/unnamed-chunk-6-17.png" width="960" /><img src="Figs/unnamed-chunk-6-18.png" width="960" /><img src="Figs/unnamed-chunk-6-19.png" width="960" /><img src="Figs/unnamed-chunk-6-20.png" width="960" /><img src="Figs/unnamed-chunk-6-21.png" width="960" /><img src="Figs/unnamed-chunk-6-22.png" width="960" /><img src="Figs/unnamed-chunk-6-23.png" width="960" /><img src="Figs/unnamed-chunk-6-24.png" width="960" /><img src="Figs/unnamed-chunk-6-25.png" width="960" /><img src="Figs/unnamed-chunk-6-26.png" width="960" /><img src="Figs/unnamed-chunk-6-27.png" width="960" /><img src="Figs/unnamed-chunk-6-28.png" width="960" /><img src="Figs/unnamed-chunk-6-29.png" width="960" /><img src="Figs/unnamed-chunk-6-30.png" width="960" /><img src="Figs/unnamed-chunk-6-31.png" width="960" /><img src="Figs/unnamed-chunk-6-32.png" width="960" /></p>
 <p>Even for the most expressed genes, the counts at the mutated positions are not consistent across cells.</p>
 </div>
 <div id="error-rate" class="section level2">
@@ -179684,7 +179684,7 @@ for(mut in miss_muts) {
 <p><span class="math display">\[ Err = \frac{\sum_i^{N} A_i}{\sum_i^{N} (R_i+A_i)} \]</span></p>
 <pre class="r"><code>errors &lt;- gen.MultiErrorRate()
 hist(errors,main=&#39;Distribution of errors (N=21)&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-6-1.png" width="960" /></p>
+<p><img src="Figs/unnamed-chunk-7-1.png" width="960" /></p>
 <p>The mean error rate is</p>
 <pre class="r"><code>mean(errors)</code></pre>
 <pre><code>[1] 0.00421445</code></pre>
