@@ -75,7 +75,3 @@ The mean error rate is
 mean(errors)
 ```
 
-## RNA-seq Variant Calling
-
-We can test the sensitivity of RNA-seq variant calling by comparing with known somatic mutations in this patient. 
-
