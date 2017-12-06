@@ -29,24 +29,23 @@ The frequency of mutation types is shown below. We have 170 coding mutations, no
 table(covmat$Type)
 ```
 
-
 We now look at the mutational profiles of some genes across all cells.
 
 ## Basic exploration
 
-Using the single-cell digital expression matrix, the top 20 expressed mutated genes in these cells are:
+Using the single-cell digital expression matrix, the top expressed mutated genes in these cells are:
 
 ```{r}
 geneCounts <- rowSums(tpms[covmat[,"Gene"],])
-geneCounts[order(geneCounts,decreasing=TRUE)][1:20]
+geneCounts[order(geneCounts,decreasing=TRUE)][1:40]
 ```
 
-We can visualize the reference and alternative counts for each of these genes across all cells. We show only the genes with sense mutations. We also show the TPM/10 = TPTM below.
+From the list above, 'APC' and 'HUWE' are known to be associated with cancer. 'APC' has an intronic mutation, so we dont get much reads from it in RNA-seq. 'HUWE' is a tumor suppressor gene which has a missense mutation, thus we recover some information about it. We can visualize the reference and alternative counts for each of these genes across all cells. We show only the genes with sense mutations. We also show the TPM/10 = TPTM below.
 
 ```{r}
 pos <- seq(8,length(covmat),by=4)
 miss_muts <- covmat[covmat$Type == 'Missense_Mutation' | covmat$Type == 'Nonsense_Mutation',"Gene"]
-miss_muts <- miss_muts[rowSums(tpms[miss_muts,]) > 400]
+miss_muts <- miss_muts[rowSums(tpms[miss_muts,]) > 500]
 miss_muts <- miss_muts[order(rowSums(tpms[miss_muts,]),decreasing=TRUE)]
 for(mut in miss_muts) {
   freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene==mut,pos])), 
@@ -62,6 +61,8 @@ Even for the most expressed genes, the counts at the mutated positions are not c
 
 ## Error Rate
 
+Observed error rates in sequencing and aligning can be obtained by randomly sampling positions along the exome.
+
 $$ Err = \frac{\sum_i^{N} A_i}{\sum_i^{N} (R_i+A_i)} $$
 
 ```{r}
@@ -73,3 +74,8 @@ The mean error rate is
 ```{r}
 mean(errors)
 ```
+
+## RNA-seq Variant Calling
+
+We can test the sensitivity of RNA-seq variant calling by comparing with known somatic mutations in this patient. 
+
