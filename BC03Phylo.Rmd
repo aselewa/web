@@ -45,10 +45,9 @@ It is difficult to distinguish copy-number variation from differential expressio
 
 This idea was executed in [Patel et al.](http://science.sciencemag.org/content/early/2014/06/11/science.1254257) and [Chung et al.](https://www.nature.com/articles/ncomms15081) using single-cell RNA-seq data. We adopt this idea to try to infer large-scale CNVs.
 
-As a reference, we use GTEx normal breast tissue TPMs. We average across all breast tissue. For a given gene, we find the mean expression in single cell data and substract this amount from the GTEx average expression value. Finally, the 100 gene moving average is done. This reference of normal tissue allows us to infer losses and gains of CNVs at a large scale. 
+As a reference, we use GTEx normal breast tissue TPMs. We average across all breast tissue. The single-cell data is centered using this averages, thus the final matrix is a relative expression matrix to GTEx. The relative expression matrix is then smoothed.
 
-
-The heatmap for the Z-scores is shown below. The black vertical bars seperate chromosomes. The order of chromosomes is from left to right as 1, 2, 3, .. ,X, Y. I used all the genes that occur in both GTEx and the single-cell data (~10k genes), with a gene block of 150 genes. The dendrogam on the left represents heirarichal clustering of the expression profiles.
+The CNV profiles are shown below. The black vertical bars seperate chromosomes. The order of chromosomes is from left to right as 1, 2, 3, .. ,X, Y. I used all the genes that occur in both GTEx and the single-cell data (~10k genes), with a gene block of 150 genes. The dendrogam on the left represents heirarichal clustering of the expression profiles. 
 
 ```{r}
 source('/Users/aselewa/sc_call_variants/inferCNV.R')
