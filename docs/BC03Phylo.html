@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Alan Selewa" />
+
+<meta name="date" content="2017-11-17" />
+
+<title>Phylogenetic Analysis of BC Data</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Alan Selewa</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="cv_page.html">
+    <span class="fa fa-file  fa-2x"></span>
+     
+    CV
+  </a>
+</li>
+<li>
+  <a href="research.html">
+    <span class="fa fa-book fa-2x"></span>
+     
+    Research
+  </a>
+</li>
+<li>
+  <a href="gallery.html">
+    <span class="fa fa-camera fa-2x"></span>
+     
+    Gallery
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/aselewa">
+    <span class="fa fa-github fa-2x"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/alan-selewa-000889b8/">
+    <span class="fa fa-linkedin fa-2x"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Phylogenetic Analysis of BC Data</h1>
+<h4 class="author"><em>Alan Selewa</em></h4>
+<h4 class="date"><em>2017-11-17</em></h4>
+
+</div>
+
+
+<div id="load-processed-data" class="section level2">
+<h2>Load processed data</h2>
+<p>We load the familiar data structure for single-cell mutation profiles.</p>
+<pre class="r"><code>source(&quot;/Users/aselewa/sc_call_variants/readcounts_parser.R&quot;)
+covmat &lt;- gen.CovMat()</code></pre>
+</div>
+<div id="mutation-matrix" class="section level2">
+<h2>Mutation Matrix</h2>
+<p>For each cell-mutation, we count the total number of reference and alternative alleles. Under the null model, the probability of observing n alternative alleles and N-n reference alleles is given by:</p>
+<p><span class="math display">\[ P(A = n) = {{N}\choose{n}}  p_{error}^{n} (1 - p_{error})^{(N-n)} \]</span></p>
+<p>where <span class="math inline">\(p_{error} = 0.004\)</span> is the estimated error rate. The error rate is define as the probability of observing a mutation by chance. We perform a binomial test to obtain the p-value of our observed alternative/reference counts under the null model. We choose a cut-off of 0.05. If a cell-mutation satisfies the cutoff, then a “1” is placed in the mutation matrix and 0 otherwise. Mutations with missing data are left as “NA”.</p>
+<p>The mutation matrix was obtained for all mutation-cell pairs. Below we show the top 5 mutations in terms of minimal missing data.</p>
+<pre class="r"><code>phylomat &lt;- gen.PhyMat(covmat)
+NAcount &lt;- apply(phylomat,1,function(x) length(which(is.na(x))))
+subphylo &lt;- t(phylomat[order(NAcount)[1:5],]) #get top 5 informative mutations
+NAcount &lt;- apply(subphylo,1,function(x) length(which(is.na(x))))
+subphylo[order(NAcount),] #order cells by how informative their mutations are</code></pre>
+<pre><code>        [,1] [,2] [,3] [,4] [,5]
+BC03_13    1    0    0    1    1
+BC03_28    0    0    1    1    0
+BC03_50    0    0    1    1    0
+BC03_58    0    0    1    1    0
+BC03_09    0    1    1   NA    0
+BC03_11    1    1   NA    1    0
+BC03_16    0    0    1   NA    0
+BC03_19    1    1    1   NA    1
+BC03_20    1    1   NA    1    0
+BC03_26    0    0    1   NA    0
+BC03_29    1    0    1   NA    0
+BC03_41    0    0    1   NA    0
+BC03_43    1    1   NA    1    1
+BC03_57    0   NA    1    1    0
+BC03_78    1    0    1    1   NA
+BC03_92    0    0    0    1   NA
+BC03_94    0    1    1    1   NA
+BC03_85    0    0    1    1   NA
+BC03_17    0    1   NA   NA    1
+BC03_21    0   NA   NA    1    0
+BC03_23    1    0    1   NA   NA
+BC03_24   NA    0   NA    1    0
+BC03_06   NA   NA   NA    1    0
+BC03_35   NA   NA    1    1   NA
+BC03_60   NA   NA    1    1   NA
+BC03_81    0    0   NA   NA   NA
+BC03_86    0   NA   NA    1   NA
+BC03_93    0   NA    1   NA   NA
+BC03_66    0    1   NA   NA   NA
+BC03_03   NA   NA   NA    1   NA
+BC03_37   NA    0   NA   NA   NA
+BC03_53    0   NA   NA   NA   NA
+BC03_25   NA   NA   NA   NA   NA</code></pre>
+<p>A lot of missing data. How do we deal with this? We can impute or try a method that does phylgenetic reconstruction with missing data, although that is probably not going to be a good tree.</p>
+</div>
+<div id="cnv-profiles" class="section level2">
+<h2>CNV Profiles</h2>
+<p>It is difficult to distinguish copy-number variation from differential expression in scRNA-seq data. Instead, researchers thus far detect large-scale CNVs by ordering genes by their genomic position and performing a moving average over ~50-200 gene blocks, depending on the number of genes used in the analysis.</p>
+<p>This idea was executed in <a href="http://science.sciencemag.org/content/early/2014/06/11/science.1254257">Patel et al.</a> and <a href="https://www.nature.com/articles/ncomms15081">Chung et al.</a> using single-cell RNA-seq data. We adopt this idea to try to infer large-scale CNVs.</p>
+<p>As a reference, we use GTEx normal breast tissue TPMs. We average across all breast tissue. For a given gene, we find the mean expression in single cell data and substract this amount from the GTEx average expression value. Finally, the 100 gene moving average is done. This reference of normal tissue allows us to infer losses and gains of CNVs at a large scale.</p>
+<p>The heatmap for the Z-scores is shown below. The black vertical bars seperate chromosomes. The order of chromosomes is from left to right as 1, 2, 3, .. ,X, Y. I used all the genes that occur in both GTEx and the single-cell data (~10k genes), with a gene block of 150 genes. The dendrogam on the left represents heirarichal clustering of the expression profiles.</p>
+<pre class="r"><code>source(&#39;/Users/aselewa/sc_call_variants/inferCNV.R&#39;)</code></pre>
+<p><img src="Figs/unnamed-chunk-6-1.png" width="960" /></p>
+<p>We have complete phylogeny for 4 cells in the mutation matrix, namely, BC03_13, BC03_28, BC03_50, and BC03_58. According to their mutation profiles, 13 is distant from 28,50,and 58, while these 3 cells have 0 distance between them. Does this pattern in the heirarchical clustering of CNV profiles hold? Yes, the trend holds.</p>
+<div class="figure">
+<img src="img/cnv_mutation_fig.png" />
+
+</div>
+<p>The figure above compares the two trees. The left tree is a little finer due to the nature of the data, but overall the trend holds. Perhaps we can use this CNV data to infer missing data in the original phylogenetic reconstruction problem.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

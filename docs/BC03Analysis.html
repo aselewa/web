@@ -332,7 +332,8 @@ div.tocify {
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
 <p>Single-cell RNA-seq across 33 cells were aligned to <code>hg19</code> using <code>STAR</code> on the RCC and 33 BAM files were produced as a result. Each cell has about <span class="math inline">\(10^6\)</span> unique reads. The average coverage is <strong>16.69</strong>, with <strong>9.7%</strong> of transcriptome covered at atleast <strong>10X</strong>. Next, I used <code>bam-readcounts</code> (default parameters) to obtain read counts at each mutation positions for each nucleotide. The following data structure was used to summarise single cell mutation profiles:</p>
-<pre class="r"><code>source(&#39;/Users/aselewa/sc_call_variants/readcounts_parser.R&#39;)
+<pre class="r"><code>source(&#39;/Users/aselewa/sc_call_variants/readcounts_parser.R&#39;) #Contains custom functions that perform data processing/analysis
+covmat &lt;- gen.CovMat()
 knitr::kable(covmat,&quot;html&quot;) %&gt;% kable_styling() %&gt;% scroll_box(width=&quot;805px&quot;,height=&#39;400px&#39;)</code></pre>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:400px; overflow-x: scroll; width:805px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -179651,23 +179652,30 @@ NA
 <div id="basic-exploration" class="section level2">
 <h2>Basic exploration</h2>
 <p>Using the single-cell digital expression matrix, the top expressed mutated genes in these cells are:</p>
-<pre class="r"><code>geneCounts &lt;- rowSums(tpms[covmat[,&quot;Gene&quot;],])
+<pre class="r"><code>geneCounts &lt;- rowSums(covmat[,seq(6,length(covmat),by=4)],na.rm = TRUE)
+names(geneCounts) &lt;- covmat[,&quot;Gene&quot;]
 geneCounts[order(geneCounts,decreasing=TRUE)][1:40]</code></pre>
-<pre><code>    DDX5     EIF5     CCT2    TUFT1    HSPA6    HSPA4     MPC2    DDX21 
-61533.15 20860.66 12742.85  7441.48  6200.80  5770.96  4109.26  3281.47 
-   DDX42     PTK2    APLP2  HEATR5A      APC      TPR    HUWE1  HUWE1.1 
- 3217.05  2977.48  2870.84  2759.82  2757.95  2487.98  2356.25  2356.25 
-  VPS13A   AHCTF1      ILK     DEDD  TMEM219    WIPF1    BAZ2A    IKZF3 
- 2279.36  2121.12  2054.74  1903.78  1726.21  1526.00  1369.02  1359.75 
-   PDS5A    BNIP2      TTN    TTN.1    TTN.2    RPP30     GCLC    FANCA 
- 1344.14  1332.34  1257.18  1257.18  1257.18  1257.17  1230.80  1135.79 
-    CRCP   PIK3R4 LRRC37A2   CRYZL1     BRAF     CRYZ     HM13    UIMC1 
- 1133.38  1129.64  1126.63  1111.10  1085.78  1080.38  1062.38  1062.21 </code></pre>
+<pre><code>         DDX5          EIF5          CCT2         HSPA6         TUFT1 
+     55232.75      17781.20      11790.75       5441.17       5017.46 
+        HSPA4          MPC2         HUWE1           TPR           ILK 
+      4116.66       2600.57       2168.13       1875.96       1635.90 
+        DDX21       TMEM219         APLP2          PTK2         HUWE1 
+      1590.01       1558.78       1483.01       1172.75       1159.52 
+          APC         DDX42         PDS5A          DEDD         RPP30 
+      1106.73       1099.02       1085.00       1007.52        972.69 
+     LRRC37A2          CRYZ          HM13        VPS13A        CRYZL1 
+       913.73        834.64        789.24        702.96        675.82 
+         NAB2         BAZ2A         POLE4      SLC25A17         BNIP2 
+       664.45        640.85        628.35        568.70        553.75 
+        RBPMS         BTBD7       HEATR5A          GCLC RP11-686D22.8 
+       546.93        538.67        531.35        514.80        514.57 
+        IKZF3           TTN          CRCP         FANCA           TTN 
+       513.51        505.24        498.09        494.44        493.72 </code></pre>
 <p>From the list above, ‘APC’ and ‘HUWE’ are known to be associated with cancer. ‘APC’ has an intronic mutation, so we dont get much reads from it in RNA-seq. ‘HUWE’ is a tumor suppressor gene which has a missense mutation, thus we recover some information about it. We can visualize the reference and alternative counts for each of these genes across all cells. We show only the genes with sense mutations. We also show the TPM/10 = TPTM below.</p>
 <pre class="r"><code>pos &lt;- seq(8,length(covmat),by=4)
 miss_muts &lt;- covmat[covmat$Type == &#39;Missense_Mutation&#39; | covmat$Type == &#39;Nonsense_Mutation&#39; | covmat$Type == &#39;Silent&#39;,&quot;Gene&quot;]
-miss_muts &lt;- miss_muts[rowSums(tpms[miss_muts,]) &gt; 500]
-miss_muts &lt;- miss_muts[order(rowSums(tpms[miss_muts,]),decreasing=TRUE)]
+miss_muts &lt;- miss_muts[geneCounts[miss_muts] &gt; 400]
+miss_muts &lt;- miss_muts[order(geneCounts[miss_muts],decreasing=TRUE)]
 for(mut in miss_muts) {
   freqs &lt;- cbind(avgRef = unname(unlist(covmat[covmat$Gene==mut,pos])), 
                 avgAlt = unname(unlist(covmat[covmat$Gene==mut,pos+1])),
@@ -179675,7 +179683,7 @@ for(mut in miss_muts) {
   barplot(t(freqs),beside=TRUE,legend.text = c(&quot;Ref&quot;,&quot;Alt&quot;,&quot;TPTM&quot;),
           col = c(&quot;red&quot;,&quot;blue&quot;,&quot;black&quot;),xlab=&#39;Cell&#39;,ylab=&#39;Counts&#39;,main=mut)
 }</code></pre>
-<p><img src="Figs/unnamed-chunk-5-1.png" width="960" /><img src="Figs/unnamed-chunk-5-2.png" width="960" /><img src="Figs/unnamed-chunk-5-3.png" width="960" /><img src="Figs/unnamed-chunk-5-4.png" width="960" /><img src="Figs/unnamed-chunk-5-5.png" width="960" /><img src="Figs/unnamed-chunk-5-6.png" width="960" /><img src="Figs/unnamed-chunk-5-7.png" width="960" /><img src="Figs/unnamed-chunk-5-8.png" width="960" /><img src="Figs/unnamed-chunk-5-9.png" width="960" /><img src="Figs/unnamed-chunk-5-10.png" width="960" /><img src="Figs/unnamed-chunk-5-11.png" width="960" /><img src="Figs/unnamed-chunk-5-12.png" width="960" /><img src="Figs/unnamed-chunk-5-13.png" width="960" /><img src="Figs/unnamed-chunk-5-14.png" width="960" /><img src="Figs/unnamed-chunk-5-15.png" width="960" /><img src="Figs/unnamed-chunk-5-16.png" width="960" /><img src="Figs/unnamed-chunk-5-17.png" width="960" /><img src="Figs/unnamed-chunk-5-18.png" width="960" /><img src="Figs/unnamed-chunk-5-19.png" width="960" /><img src="Figs/unnamed-chunk-5-20.png" width="960" /><img src="Figs/unnamed-chunk-5-21.png" width="960" /><img src="Figs/unnamed-chunk-5-22.png" width="960" /><img src="Figs/unnamed-chunk-5-23.png" width="960" /><img src="Figs/unnamed-chunk-5-24.png" width="960" /><img src="Figs/unnamed-chunk-5-25.png" width="960" /><img src="Figs/unnamed-chunk-5-26.png" width="960" /><img src="Figs/unnamed-chunk-5-27.png" width="960" /><img src="Figs/unnamed-chunk-5-28.png" width="960" /><img src="Figs/unnamed-chunk-5-29.png" width="960" /><img src="Figs/unnamed-chunk-5-30.png" width="960" /><img src="Figs/unnamed-chunk-5-31.png" width="960" /><img src="Figs/unnamed-chunk-5-32.png" width="960" /></p>
+<p><img src="Figs/unnamed-chunk-11-1.png" width="960" /><img src="Figs/unnamed-chunk-11-2.png" width="960" /><img src="Figs/unnamed-chunk-11-3.png" width="960" /><img src="Figs/unnamed-chunk-11-4.png" width="960" /><img src="Figs/unnamed-chunk-11-5.png" width="960" /><img src="Figs/unnamed-chunk-11-6.png" width="960" /><img src="Figs/unnamed-chunk-11-7.png" width="960" /><img src="Figs/unnamed-chunk-11-8.png" width="960" /><img src="Figs/unnamed-chunk-11-9.png" width="960" /><img src="Figs/unnamed-chunk-11-10.png" width="960" /><img src="Figs/unnamed-chunk-11-11.png" width="960" /><img src="Figs/unnamed-chunk-11-12.png" width="960" /><img src="Figs/unnamed-chunk-11-13.png" width="960" /><img src="Figs/unnamed-chunk-11-14.png" width="960" /><img src="Figs/unnamed-chunk-11-15.png" width="960" /><img src="Figs/unnamed-chunk-11-16.png" width="960" /><img src="Figs/unnamed-chunk-11-17.png" width="960" /><img src="Figs/unnamed-chunk-11-18.png" width="960" /><img src="Figs/unnamed-chunk-11-19.png" width="960" /><img src="Figs/unnamed-chunk-11-20.png" width="960" /></p>
 <p>Even for the most expressed genes, the counts at the mutated positions are not consistent across cells.</p>
 </div>
 <div id="error-rate" class="section level2">
@@ -179684,7 +179692,7 @@ for(mut in miss_muts) {
 <p><span class="math display">\[ Err = \frac{\sum_i^{N} A_i}{\sum_i^{N} (R_i+A_i)} \]</span></p>
 <pre class="r"><code>errors &lt;- gen.MultiErrorRate()
 hist(errors,main=&#39;Distribution of errors (N=21)&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-6-1.png" width="960" /></p>
+<p><img src="Figs/unnamed-chunk-12-1.png" width="960" /></p>
 <p>The mean error rate is</p>
 <pre class="r"><code>mean(errors)</code></pre>
 <pre><code>[1] 0.00421445</code></pre>

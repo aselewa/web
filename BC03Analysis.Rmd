@@ -19,7 +19,8 @@ library(kableExtra)
 Single-cell RNA-seq across 33 cells were aligned to ``hg19`` using ``STAR`` on the RCC and 33 BAM files were produced as a result. Each cell has about $10^6$ unique reads. The average coverage is **16.69**, with **9.7%** of transcriptome covered at atleast **10X**. Next, I used ``bam-readcounts`` (default parameters) to obtain read counts at each mutation positions for each nucleotide. The following data structure was used to summarise single cell mutation profiles:
 
 ```{r}
-source('/Users/aselewa/sc_call_variants/readcounts_parser.R')
+source('/Users/aselewa/sc_call_variants/readcounts_parser.R') #Contains custom functions that perform data processing/analysis
+covmat <- gen.CovMat()
 knitr::kable(covmat,"html") %>% kable_styling() %>% scroll_box(width="805px",height='400px')
 ```
 
@@ -36,7 +37,8 @@ We now look at the mutational profiles of some genes across all cells.
 Using the single-cell digital expression matrix, the top expressed mutated genes in these cells are:
 
 ```{r}
-geneCounts <- rowSums(tpms[covmat[,"Gene"],])
+geneCounts <- rowSums(covmat[,seq(6,length(covmat),by=4)],na.rm = TRUE)
+names(geneCounts) <- covmat[,"Gene"]
 geneCounts[order(geneCounts,decreasing=TRUE)][1:40]
 ```
 
@@ -45,8 +47,8 @@ From the list above, 'APC' and 'HUWE' are known to be associated with cancer. 'A
 ```{r}
 pos <- seq(8,length(covmat),by=4)
 miss_muts <- covmat[covmat$Type == 'Missense_Mutation' | covmat$Type == 'Nonsense_Mutation' | covmat$Type == 'Silent',"Gene"]
-miss_muts <- miss_muts[rowSums(tpms[miss_muts,]) > 500]
-miss_muts <- miss_muts[order(rowSums(tpms[miss_muts,]),decreasing=TRUE)]
+miss_muts <- miss_muts[geneCounts[miss_muts] > 400]
+miss_muts <- miss_muts[order(geneCounts[miss_muts],decreasing=TRUE)]
 for(mut in miss_muts) {
   freqs <- cbind(avgRef = unname(unlist(covmat[covmat$Gene==mut,pos])), 
                 avgAlt = unname(unlist(covmat[covmat$Gene==mut,pos+1])),
