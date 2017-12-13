@@ -32,7 +32,7 @@ The mutation matrix was obtained for all mutation-cell pairs. Below we show the 
 ```{r}
 phylomat <- gen.PhyMat(covmat)
 NAcount <- apply(phylomat,1,function(x) length(which(is.na(x))))
-subphylo <- t(phylomat[order(NAcount)[1:5],]) #get top 5 informative mutations
+subphylo <- t(phylomat[order(NAcount)[1:10],]) #get top 5 informative mutations
 NAcount <- apply(subphylo,1,function(x) length(which(is.na(x))))
 subphylo[order(NAcount),] #order cells by how informative their mutations are
 ```
@@ -41,17 +41,21 @@ A lot of missing data. How do we deal with this? We can impute or try a method t
 
 ## CNV Profiles
 
-It is difficult to distinguish copy-number variation from differential expression in scRNA-seq data. Instead, researchers thus far detect large-scale CNVs by ordering genes by their genomic position and performing a moving average over ~50-200   gene blocks, depending on the number of genes used in the analysis.
+It is difficult to distinguish copy-number variation from differential expression in scRNA-seq data. Instead, researchers thus far detect large-scale CNVs by ordering genes by their genomic position and performing a moving average over ~150 gene blocks, depending on the number of genes used in the analysis.
 
 This idea was executed in [Patel et al.](http://science.sciencemag.org/content/early/2014/06/11/science.1254257) and [Chung et al.](https://www.nature.com/articles/ncomms15081) using single-cell RNA-seq data. We adopt this idea to try to infer large-scale CNVs.
 
-As a reference, we use GTEx normal breast tissue TPMs. We average across all breast tissue. The single-cell data is centered using this averages, thus the final matrix is a relative expression matrix to GTEx. The relative expression matrix is then smoothed.
+As a reference, we use GTEx normal breast tissue TPMs. We average across all breast tissue. A CNV reference profile is constructed in parallel using 150 gene blocks.
 
-The CNV profiles are shown below. The black vertical bars seperate chromosomes. The order of chromosomes is from left to right as 1, 2, 3, .. ,X, Y. I used all the genes that occur in both GTEx and the single-cell data (~10k genes), with a gene block of 150 genes. The dendrogam on the left represents heirarichal clustering of the expression profiles. 
+The CNV profile for each cell is substracted from the reference CNV and the result is shown below. The black vertical bars seperate chromosomes. The order of chromosomes is from left to right as 1, 2, 3, .. ,X, Y. I used all the genes that occur in both GTEx and the single-cell data (~10k genes), with a gene block of 150 genes. The dendrogam on the left represents heirarichal clustering of the expression profiles. 
 
 ```{r}
 source('/Users/aselewa/sc_call_variants/inferCNV.R')
 ```
+
+
+These CNV profiles are consistent with expected amplification/deletion of chromosomes in ER+ breast cancer. In particular, chromosomes 8 and 17 amplification is predictive of breast cancer. Another observation is that we have two distant clusters here. It seems to suggest that half the cells are normal cells because they are closer to the reference CNV from GTEx.
+
 
 We have complete phylogeny for 4 cells in the mutation matrix, namely, BC03_13, BC03_28, BC03_50, and BC03_58. According to their mutation profiles, 13 is distant from 28,50,and 58, while these 3 cells have 0 distance between them. Does this pattern in the heirarchical clustering of CNV profiles hold? Yes, the trend holds. 
 
@@ -66,5 +70,4 @@ subphylo["BC03_57",]
 ```
 
 From the CNV profiles, BC03_57 shares a more recent ancestor with BC03_50, BC03_28, and BC058, thus the missing data is likely to be '1', because the CNV tree tells us it is further from BC03_13 than BC03_58/28/50.
-
 
