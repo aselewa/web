@@ -389,13 +389,17 @@ BC03_25   NA   NA   NA   NA   NA</code></pre>
 <p>As a reference, we use GTEx normal breast tissue TPMs. We average across all breast tissue. The single-cell data is centered using this averages, thus the final matrix is a relative expression matrix to GTEx. The relative expression matrix is then smoothed.</p>
 <p>The CNV profiles are shown below. The black vertical bars seperate chromosomes. The order of chromosomes is from left to right as 1, 2, 3, .. ,X, Y. I used all the genes that occur in both GTEx and the single-cell data (~10k genes), with a gene block of 150 genes. The dendrogam on the left represents heirarichal clustering of the expression profiles.</p>
 <pre class="r"><code>source(&#39;/Users/aselewa/sc_call_variants/inferCNV.R&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-3-1.png" width="960" /></p>
+<p><img src="Figs/unnamed-chunk-4-1.png" width="960" /></p>
 <p>We have complete phylogeny for 4 cells in the mutation matrix, namely, BC03_13, BC03_28, BC03_50, and BC03_58. According to their mutation profiles, 13 is distant from 28,50,and 58, while these 3 cells have 0 distance between them. Does this pattern in the heirarchical clustering of CNV profiles hold? Yes, the trend holds.</p>
 <div class="figure">
 <img src="img/cnv_mutation_fig.png" />
 
 </div>
 <p>The figure above compares the two trees. The left tree is a little finer due to the nature of the data, but overall the trend holds. Perhaps we can use this CNV data to infer missing data in the original phylogenetic reconstruction problem.</p>
+<p>For instance, BC03_57 has the following mutational profile:</p>
+<pre class="r"><code>subphylo[&quot;BC03_57&quot;,]</code></pre>
+<pre><code>[1]  0 NA  1  1  0</code></pre>
+<p>From the CNV profiles, BC03_57 shares a more recent ancestor with BC03_50, BC03_28, and BC058, thus the missing data is likely to be ‘1’, because the CNV tree tells us it is further from BC03_13 than BC03_58/28/50.</p>
 </div>
 
 

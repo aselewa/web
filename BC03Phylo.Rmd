@@ -58,3 +58,13 @@ We have complete phylogeny for 4 cells in the mutation matrix, namely, BC03_13, 
 ![](/Users/aselewa/web/img/cnv_mutation_fig.png)
 
 The figure above compares the two trees. The left tree is a little finer due to the nature of the data, but overall the trend holds. Perhaps we can use this CNV data to infer missing data in the original phylogenetic reconstruction problem.
+
+For instance, BC03_57 has the following mutational profile:
+
+```{r}
+subphylo["BC03_57",]
+```
+
+From the CNV profiles, BC03_57 shares a more recent ancestor with BC03_50, BC03_28, and BC058, thus the missing data is likely to be '1', because the CNV tree tells us it is further from BC03_13 than BC03_58/28/50.
+
+
