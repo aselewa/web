@@ -5,12 +5,12 @@ date: 2017-11-17
 output: html_document
 ---
 
-```{r global_options, include=FALSE}
+```{r global_options, echo=FALSE}
 knitr::opts_chunk$set(fig.width=10, fig.height=6, fig.path='Figs/',
                       echo=TRUE, warning=FALSE, message=FALSE, comment = NA)
 ```
 
-```{r "setup", include=FALSE}
+```{r "setup", echo=FALSE}
 knitr::opts_knit$set(root.dir = "~/sc_call_variants/")
 ```
 
@@ -21,7 +21,7 @@ knitr::opts_knit$set(root.dir = "~/sc_call_variants/")
 Using a window of 150 genes, the relative CNV profiles of single cells are computed and clustered. 
 
 ```{r cluster_cnvs_bc03}
-source('/Users/aselewa/sc_call_variants/inferCNV.R')
+source('inferCNV.R')
 results03 = clusterCNVs('03')
 bc03_cnv = results03[[1]]
 cells03 = results03[[2]]
@@ -33,8 +33,8 @@ Next, we plot first and second principle component of the expression matrix.
 ```{r bc03_pca, echo=F}
 bc03_pca <- prcomp(t(log2(tpms[genes03,cells03]+1)),center=TRUE,scale=TRUE)
 PCcords <- as.data.frame(bc03_pca$x)[c("PC1","PC2")]
-unhealthy <- cells03[bc03_cnv$rowInd[1:15]]
-healthy <- cells03[!(cells03 %in% unhealthy)]
+healthy <- cells03[bc03_cnv$rowInd[1:22]]
+unhealthy <- cells03[!(cells03 %in% healthy)]
 PCcords[healthy,"color"] <- 'blue'
 PCcords[unhealthy,"color"] <- 'red'
 plot(PCcords[,1],PCcords[,2],pch=16,col=PCcords[,3],xlab='PC 1',ylab='PC 2')
@@ -102,26 +102,27 @@ The sample above is not so interesting because there seems to be only one clone 
 
 Based on the CNV profiles below, patient BC03 may have multiple clones. 
 
-```{r}
-result02 = clusterCNVs('02')
+```{r bc08_cnv}
+source('inferCNV.R')
+result02 = clusterCNVs('08')
 bc02_cnv = result02[[1]]
 cells02 = result02[[2]]
 genes02 = result02[[3]]
 ```
 
-```{r bc02_pca, echo = F}
+```{r bc08_pca, echo = F}
 bc02_pca <- prcomp(t(log2(tpms[genes02,cells02]+1)),center=TRUE,scale=TRUE)
 PCcords <- as.data.frame(bc02_pca$x)[c("PC1","PC2")]
-healthy <- c('BC02_33','BC02_27','BC02_80')
+healthy <- cells02[bc02_cnv$rowInd[1:6]]
 unhealthy <- cells02[!(cells02 %in% healthy)]
 PCcords[healthy,"color"] <- 'blue'
 PCcords[unhealthy,"color"] <- 'red'
 plot(PCcords[,1],PCcords[,2],pch=16,col=PCcords[,3],xlab='PC 1',ylab='PC 2')
-legend(60,30,c('Cancer','Healthy'),col=c('red','blue'),pch = c(16,16))
+legend(20,45,c('Cancer','Healthy'),col=c('red','blue'),pch = c(16,16))
 ```
 
 
-```{r bc02_cnv_ggtree, echo=FALSE}
+```{r bc08_cnv_ggtree, echo=FALSE}
 bc02_cnv_tree = as.phylo(as.hclust(bc02_cnv$rowDendrogram))
 colData = data.frame(cells=c(healthy,unhealthy),place=c(rep("Healthy",length(healthy)),rep("Cancer",length(unhealthy))))
 p = ggtree(bc02_cnv_tree)
@@ -133,4 +134,4 @@ gheatmap(p,data = subcounts,offset=6, width=0.4, colnames=TRUE,font.size = 1,low
 
 ### SCITE Output
 
-In progress.
+In progress. 

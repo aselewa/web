@@ -334,7 +334,7 @@ div.tocify {
 <div id="clustering-cells" class="section level3">
 <h3>Clustering Cells</h3>
 <p>Using a window of 150 genes, the relative CNV profiles of single cells are computed and clustered.</p>
-<pre class="r"><code>source(&#39;/Users/aselewa/sc_call_variants/inferCNV.R&#39;)
+<pre class="r"><code>source(&#39;inferCNV.R&#39;)
 results03 = clusterCNVs(&#39;03&#39;)</code></pre>
 <p><img src="Figs/cluster_cnvs_bc03-1.png" width="960" /></p>
 <pre class="r"><code>bc03_cnv = results03[[1]]
@@ -378,13 +378,14 @@ HSPA6         3       3       0       3       3</code></pre>
 <div id="clustering-cells-1" class="section level3">
 <h3>Clustering Cells</h3>
 <p>Based on the CNV profiles below, patient BC03 may have multiple clones.</p>
-<pre class="r"><code>result02 = clusterCNVs(&#39;02&#39;)</code></pre>
-<p><img src="Figs/unnamed-chunk-3-1.png" width="960" /></p>
+<pre class="r"><code>source(&#39;inferCNV.R&#39;)
+result02 = clusterCNVs(&#39;08&#39;)</code></pre>
+<p><img src="Figs/bc08_cnv-1.png" width="960" /></p>
 <pre class="r"><code>bc02_cnv = result02[[1]]
 cells02 = result02[[2]]
 genes02 = result02[[3]]</code></pre>
-<p><img src="Figs/bc02_pca-1.png" width="960" /></p>
-<p><img src="Figs/bc02_cnv_ggtree-1.png" width="960" /></p>
+<p><img src="Figs/bc08_pca-1.png" width="960" /></p>
+<p><img src="Figs/bc08_cnv_ggtree-1.png" width="960" /></p>
 </div>
 <div id="scite-output-1" class="section level3">
 <h3>SCITE Output</h3>
