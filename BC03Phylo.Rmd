@@ -25,19 +25,18 @@ For each cell-mutation, we count the total number of reference and alternative a
 
 $$ P(A = n) = {{N}\choose{n}}  p_{error}^{n} (1 - p_{error})^{(N-n)} $$
 
-where $p_{error} = 0.004$ is the estimated error rate. The error rate is define as the probability of observing a mutation by chance. We perform a binomial test to obtain the p-value of our observed alternative/reference counts under the null model. We choose a cut-off of 0.05. If a cell-mutation satisfies the cutoff, then a "1" is placed in the mutation matrix and 0 otherwise. Mutations with missing data are left as "NA". 
-
-The mutation matrix was obtained for all mutation-cell pairs. Below we show the top 5 mutations in terms of minimal missing data. 
+where $p_{error} = 0.004$ is the estimated error rate. The error rate is define as the probability of observing a mutation by chance. We perform a binomial test to obtain the p-value of our observed alternative/reference counts under the null model. We choose a cut-off of 0.05. If a cell-mutation satisfies the cutoff, then a "1" is placed in the mutation matrix and 0 otherwise. Mutations with missing data are labeled as 3. 
 
 ```{r}
 phylomat <- gen.PhyMat(covmat)
-NAcount <- apply(phylomat,1,function(x) length(which(is.na(x))))
-subphylo <- t(phylomat[order(NAcount)[1:10],]) #get top 5 informative mutations
-NAcount <- apply(subphylo,1,function(x) length(which(is.na(x))))
-subphylo[order(NAcount),] #order cells by how informative their mutations are
 ```
 
-A lot of missing data. How do we deal with this? We can impute or try a method that does phylgenetic reconstruction with missing data, although that is probably not going to be a good tree. 
+Using top 30 mutations (in terms of least missing data) on 33 cells, 66% of the entries in the mutation matrix are missing values. This is equivalent to effectively halfing the number of samples (cells) when using SCITE to reconstruct the mutation matrix. Using SCITE, we obtain 9 co-likely trees. We visualize one of them below:
+
+```{r}
+library(DiagrammeR)
+grViz('/Users/aselewa/tree_inference/old/bc03_tree_ml0.gv')
+```
 
 ## CNV Profiles
 
