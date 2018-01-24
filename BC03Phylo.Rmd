@@ -48,8 +48,9 @@ As a reference, we use GTEx normal breast tissue TPMs. We average across all bre
 
 The CNV profile for each cell is substracted from the reference CNV and the result is shown below. The black vertical bars seperate chromosomes. The order of chromosomes is from left to right as 1, 2, 3, .. ,X, Y. I used all the genes that occur in both GTEx and the single-cell data (~10k genes), with a gene block of 150 genes. The dendrogam on the left represents heirarichal clustering of the expression profiles. 
 
-```{r}
+```{r bc03_cnv_plot}
 source('/Users/aselewa/sc_call_variants/inferCNV.R')
+results <- 
 ```
 
 
